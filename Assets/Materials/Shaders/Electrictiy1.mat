@@ -51,7 +51,7 @@ Material:
     - _Cutoff: 0.5
     - _DstBlend: 0
     - _Elec_Amount: 10.44
-    - _ElectictylinesScale: 11.4
+    - _ElectictylinesScale: 5
     - _ElectricityNoiseScale: 5
     - _QueueControl: 0
     - _QueueOffset: 0

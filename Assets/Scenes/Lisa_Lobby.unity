@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCamera: {fileID: 1384172426328812640, guid: de564fb8e3112954d9277225094fb345, type: 3}
-  caveSetup: {fileID: 1008811566030080382, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+  caveSetup: {fileID: 7864000468315854960, guid: e9f3a5fc5c01b0c4493871ce5df49109, type: 3}
   vRSetup: {fileID: 5435133622104307769, guid: caa9e20410730134894b49ecdf38546e, type: 3}
 --- !u!1 &490319814
 GameObject:

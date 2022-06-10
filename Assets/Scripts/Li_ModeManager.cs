@@ -39,12 +39,15 @@ public class Li_ModeManager
 
     protected EVENT stage; //phase the state is in
     protected Li_ModeManager nextState; //ref to the state maschine (not ENUM)
-    protected GameObject button; //ref to the button
+    protected GameObject button; //ref to the switch button
+    protected bool clicked = false; //bool to check for button to switch modes
+    protected string modeText;
 
     //constructor to create the different states
-    public Li_ModeManager()
+    public Li_ModeManager(GameObject _button)
     {
         stage = EVENT.ENTER;
+        button = _button;
     }
 
     //defining the three stages
@@ -64,14 +67,22 @@ public class Li_ModeManager
         }
         return this;
     }
+
+    public void SwitchClicked()
+    {
+        if (clicked) clicked = false;
+        else clicked = true;
+    }
 }
 
 public class BuildMode : Li_ModeManager
 {
-    public BuildMode()
-        : base() //hand over the values to the base class
+    public BuildMode(GameObject _button)
+        : base(_button) //hand over the values to the base class
     {
         name = STATE.BUILD;
+        button = _button;
+        modeText = "Build Mode";
     }
 
     public override void Enter()
@@ -81,7 +92,18 @@ public class BuildMode : Li_ModeManager
 
     public override void Update()
     {
-        base.Update();
+        //base.Update();
+
+        //set the button text
+        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
+
+        //switch the mode if button was clicked
+        if (clicked)
+        {
+            SwitchClicked();
+            nextState = new SimulationMode(button); //the next state is the angry state
+            stage = EVENT.EXIT; //leave this state
+        }
     }
 
     public override void Exit()
@@ -92,10 +114,12 @@ public class BuildMode : Li_ModeManager
 
 public class SimulationMode : Li_ModeManager
 {
-    public SimulationMode()
-        : base() //hand over the values to the base class
+    public SimulationMode(GameObject _button)
+        : base(_button) //hand over the values to the base class
     {
         name = STATE.SIMULATE;
+        button = _button;
+        modeText = "Simulation Mode";
     }
 
     public override void Enter()
@@ -105,7 +129,18 @@ public class SimulationMode : Li_ModeManager
 
     public override void Update()
     {
-        base.Update();
+        //base.Update();
+
+        //set the button text
+        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
+
+        //switch the mode if button was clicked
+        if (clicked)
+        {
+            SwitchClicked();
+            nextState = new BuildMode(button); //the next state is the angry state
+            stage = EVENT.EXIT; //leave this state
+        }
     }
 
     public override void Exit()

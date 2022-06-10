@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class MoveBuilding : MonoBehaviour
 {
-    //RaycastHit hit;
+    RaycastHit hit;
     //Vector3 movePoint;
 
-    private Vector3 mOffset;
-    private float mZCoord;
+    //private Vector3 mOffset;
+    //private float mYCoord;
 
     // Start is called before the first frame update
     void Start()
@@ -21,38 +21,31 @@ public class MoveBuilding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButton(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 6)))
-            {
-                transform.position = hit.point;
-            }
-        }*/
-    }
-
-    void OnMouseDown()
-    {
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-
-        // offset = gameObject position - mouse position
-        mOffset = gameObject.transform.position - GetMouseWorldPos();
-    }
-
-    private Vector3 GetMouseWorldPos()
-    {
-        //pixel coordinates (x, y)
-        Vector3 mousePoint = Input.mousePosition;
-
-        //get z coordinate
-        mousePoint.z = mZCoord;
-
-        return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
     void OnMouseDrag()
     {
-        transform.position = GetMouseWorldPos() + mOffset;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
+        {
+             transform.position = hit.point;
+        }
     }
+
+    /*private bool CanPlaceBuilding()
+    {
+        BoxCollider buildCollider = this.GetComponent<BoxCollider>();
+
+        if (Physics.OverlapBox(hit.point, buildCollider.size / 2, Quaternion.identity, 3) != null)
+        {
+            //Debug.Log("can't move building");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }*/
 }

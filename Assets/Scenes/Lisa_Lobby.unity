@@ -248,6 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 369859490}
   - component: {fileID: 369859489}
+  - component: {fileID: 369859491}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -267,6 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9630d9ab135e5ff4eb6280a5318b7c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 911126382}
+  playerTag: Player
   serverButton: {fileID: 1843285849}
   connectToServer: Connect to Server
   connectedToServer: Connected
@@ -292,6 +295,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369859491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369859488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5362fb8a2ae5e040a1de120b301e875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 0.0015
+  xPos: 0
+  yPos: 1.1
+  zPos: 4.5
 --- !u!1 &389324946
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNames: []
+  playerCount: 2
+  sceneIndex: 1
 --- !u!4 &444865150
 Transform:
   m_ObjectHideFlags: 0
@@ -518,6 +539,7 @@ MonoBehaviour:
   defaultCamera: {fileID: 1384172426328812640, guid: de564fb8e3112954d9277225094fb345, type: 3}
   caveSetup: {fileID: 7864000468315854960, guid: e9f3a5fc5c01b0c4493871ce5df49109, type: 3}
   vRSetup: {fileID: 5435133622104307769, guid: caa9e20410730134894b49ecdf38546e, type: 3}
+  displayCount: 6
 --- !u!1 &490319814
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +897,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 927854700}
   - {fileID: 1519346151}

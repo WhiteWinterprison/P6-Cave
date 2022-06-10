@@ -27,6 +27,13 @@ public class Li_MainMenuManager : MonoBehaviour
 {
     #region Variables
 
+    [Header("The Canvas")]
+    [SerializeField]
+    private Canvas canvas;
+    [SerializeField]
+    private string playerTag;
+    private GameObject player;
+
     [Header("The button to connect to the server and the text to display")]
     [SerializeField]
     private GameObject serverButton;
@@ -75,11 +82,16 @@ public class Li_MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        //assign this users player to the player ref
+        player = GameObject.FindGameObjectWithTag(playerTag);
+
+        //based on the player setup set the text in the setup switch button
+        //in case of VR setup, also set the canvas to world space with the VR camera as the event camera
         switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
         {
             case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; break;
             case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; break;
-            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; break;
+            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; GetComponent<Li_ResizeCanvasForVR>().ResizeCanvas(canvas, player); break;
             default: break;
         }
     }

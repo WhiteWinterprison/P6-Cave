@@ -8,7 +8,9 @@
 
 
 //What it do:
-// - 
+// - check if the player is inside a room
+// - searches for all other players than the users
+// - disables all the other players cameras
 
 
 using System.Collections;

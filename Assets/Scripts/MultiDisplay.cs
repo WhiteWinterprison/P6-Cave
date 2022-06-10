@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MultiDisplay : MonoBehaviour
 {
+   void Awake()
+   {
+       createMultiDisplay();
+   }
     void createMultiDisplay()
     {
 

@@ -114,7 +114,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2

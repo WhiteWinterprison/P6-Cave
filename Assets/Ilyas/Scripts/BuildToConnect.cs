@@ -19,7 +19,9 @@ public class BuildToConnect : MonoBehaviour
     private float energyProduction = 0;
     private float currentEnergy;
 
+    //both bool for debugging purposes
     public bool isSendAll;
+    public bool isDebug;
 
 
     private void Start()
@@ -37,7 +39,8 @@ public class BuildToConnect : MonoBehaviour
             sendAllEnergy(); // for debugging purposes
         }
 
-        Debug.Log(currentEnergy);
+        if(isDebug)
+            Debug.Log(currentEnergy);
     }
 
 
@@ -79,31 +82,34 @@ public class BuildToConnect : MonoBehaviour
 
     private void sendEnergy(ConnectionCable cable, float energy)
     {
-        float cableAvailableEnergy = cable.energyAvailable();
-        if (currentEnergy > energy)
-        {
-            if (energy <= cableAvailableEnergy)
+        
+        
+            float cableAvailableEnergy = cable.energyAvailable();
+            if (currentEnergy > energy)
             {
+                if (energy <= cableAvailableEnergy)
+                {
 
-                cable.transmitEnergy(this, energy);
-            }
-            else
+                    cable.transmitEnergy(this, energy);
+                }
+                else
+                {
+                    cable.transmitEnergy(this, cableAvailableEnergy);
+                }
+            } else
             {
-                cable.transmitEnergy(this, cableAvailableEnergy);
-            }
-        } else
-        {
-            if (currentEnergy <= cableAvailableEnergy)
-            {
+                if (currentEnergy <= cableAvailableEnergy)
+                {
 
-                cable.transmitEnergy(this, currentEnergy);
+                    cable.transmitEnergy(this, currentEnergy);
+                }
+                else
+                {
+                    cable.transmitEnergy(this, cableAvailableEnergy);
+                }
+
             }
-            else
-            {
-                cable.transmitEnergy(this, cableAvailableEnergy);
-            }
-            
-        }
+        
     }
 
     public void receiveEnergy(float energy)

@@ -88,19 +88,22 @@ public class ConnectionCable : MonoBehaviour
         CableManager.terminateCable(this);
     }
 
-    public void transmitEnergy(BuildToConnect buildSendEnergy, float energyToTransfer) 
+    public void transmitEnergy(BuildToConnect buildSendEnergy, float energyToTransfer)
     {
-        if(buildSendEnergy == StartConnect) 
+        if (checkConnect())
         {
-            StartConnect.ConsumeEnergy(energyToTransfer);
-            EndConnect.receiveEnergy(energyToTransfer);
-            currentEnergy += energyToTransfer;
-        }
-        if(buildSendEnergy == EndConnect)
-        {
-            EndConnect.ConsumeEnergy(energyToTransfer);
-            StartConnect.receiveEnergy(energyToTransfer);
-            currentEnergy += energyToTransfer;
+            if (buildSendEnergy == StartConnect)
+            {
+                StartConnect.ConsumeEnergy(energyToTransfer);
+                EndConnect.receiveEnergy(energyToTransfer);
+                currentEnergy += energyToTransfer;
+            }
+            if (buildSendEnergy == EndConnect)
+            {
+                EndConnect.ConsumeEnergy(energyToTransfer);
+                StartConnect.receiveEnergy(energyToTransfer);
+                currentEnergy += energyToTransfer;
+            }
         }
     }
 }

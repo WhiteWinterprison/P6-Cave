@@ -6,13 +6,24 @@ using UnityEngine.Events;
 
 public class SelectableObject : MonoBehaviour
 {
+    [SerializeField]
+    private UnityEvent DoWhenSelected;
 
-    public UnityEvent DoWhenSelected;
-   
+    [SerializeField]
+    private UnityEvent DoWhenActivated;
+    
 
     public void SelectionOccured()
     {
-        DoWhenSelected.Invoke();
+        if(DoWhenSelected != null)
+            DoWhenSelected.Invoke();
         Debug.Log("selected");
+    }
+
+    public void ActivationOccured()
+    {
+        if (DoWhenActivated != null)
+            DoWhenActivated.Invoke();
+        Debug.Log("activated");
     }
 }

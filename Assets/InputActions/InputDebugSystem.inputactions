@@ -1,0 +1,54 @@
+{
+    "name": "InputDebugSystem",
+    "maps": [
+        {
+            "name": "KeyBoardAction",
+            "id": "e6fa3fb3-c1c3-424a-bbb8-b5fd28d8f85e",
+            "actions": [
+                {
+                    "name": "ChangeSceneUp",
+                    "type": "Button",
+                    "id": "0b4cd3ac-1fca-4ec9-99db-a3f3480a18af",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeSceneDown",
+                    "type": "Button",
+                    "id": "65c66052-a50d-41b0-8479-636de9191e73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8afde49f-1379-43da-bd79-266fca1ff620",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeSceneUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89c6865f-f9ba-4ad4-ba4d-2eb48721e381",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeSceneDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

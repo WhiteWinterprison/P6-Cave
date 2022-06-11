@@ -6,39 +6,27 @@ using UnityEngine.InputSystem;
 
 public class I_SceneSwitch : MonoBehaviour
 {
-    private int Counter = 0;
+    private int Counter  ;
 
-    void Update()
-    {
-        
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Counter -= 1;
-            Debug.Log("Scene Coutner:" + Counter);
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Counter +=1;
-            
-            Debug.Log("Scene Coutner:" + Counter);
-        }
-        if(Counter <=0)
-        {
-            Counter=0;
-            
-            Debug.Log("Stop" + Counter);
-        }
+    void start(){
+        Counter = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("SceneNR:" + Counter);
+    }
 
-        if(Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) )
-        {
-            SwitchSceneToNr();
-        }
-        
+    public void CounterUp(){
+        Counter+=1;
+        SwitchSceneToNr();
+    }
+
+    public void CounterDown(){
+         Counter-=1;
+        SwitchSceneToNr();
     }
 
    public void SwitchSceneToNr()
    {
 
         SceneManager.LoadScene(Counter);
+        Debug.Log("SceneNR:" + Counter);
    }
 }

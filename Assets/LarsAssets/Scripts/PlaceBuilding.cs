@@ -7,10 +7,7 @@ using UnityEngine;
 public class PlaceBuilding : MonoBehaviour
 {
     RaycastHit hit;
-    Vector3 movePoint;
     public GameObject prefab;
-    //GameObject placedBuilding;
-    //Vector3 position;
 
     // Start is called before the first frame update
     void Start()
@@ -39,19 +36,4 @@ public class PlaceBuilding : MonoBehaviour
                 Destroy(gameObject);
         }
     }
-
-    /*private bool CanPlaceBuilding(GameObject placedBuilding, Vector3 position)
-    {
-        BoxCollider buildCollider = placedBuilding.GetComponent<BoxCollider>();
-
-        if (Physics.CheckBox(position, buildCollider.size / 2, Quaternion.identity, 3) != null)
-        {
-            Debug.Log(buildCollider.name);
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }*/
 }

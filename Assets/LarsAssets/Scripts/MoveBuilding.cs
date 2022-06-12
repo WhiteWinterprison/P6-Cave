@@ -7,10 +7,6 @@ using UnityEngine;
 public class MoveBuilding : MonoBehaviour
 {
     RaycastHit hit;
-    //Vector3 movePoint;
-
-    //private Vector3 mOffset;
-    //private float mYCoord;
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +29,4 @@ public class MoveBuilding : MonoBehaviour
              transform.position = hit.point;
         }
     }
-
-    /*private bool CanPlaceBuilding()
-    {
-        BoxCollider buildCollider = this.GetComponent<BoxCollider>();
-
-        if (Physics.OverlapBox(hit.point, buildCollider.size / 2, Quaternion.identity, 3) != null)
-        {
-            //Debug.Log("can't move building");
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }*/
 }

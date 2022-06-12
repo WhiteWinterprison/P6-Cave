@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//Lisa Fröhlich Gabra, Expanded Realities, Semester 6th//
+//Lisa Frï¿½hlich Gabra, Expanded Realities, Semester 6th//
 //Group 1: HEL                                         //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -43,18 +43,29 @@ public class Li_PlayerSetupDetection : MonoBehaviour
 
     private void Awake()
     {
-        if (OpenVR.IsHmdPresent()) //if there is a HMD present
+        ActivateDisplays();
+
+        if (OpenVR.IsHmdPresent() && displayCount == Display.displays.Length+1) //if there is a HMD present
         {
-            if (Display.displays.Length == displayCount - 1) //and there multiple displays
-            {
-                playerSetup = 2; //the setup is the CAVE setup
+
+             playerSetup = 2; //the setup is the CAVE setup
                 Debug.Log("Setup = CAVE");
-            }
-            else
-            {
-                playerSetup = 3; //or there is only the hmd and it is the VR setup
-                Debug.Log("Setup = VR");
-            }
+
+            // if (Display.displays.Length == displayCount - 1) //and there multiple displays
+            // {
+            //     playerSetup = 2; //the setup is the CAVE setup
+            //     Debug.Log("Setup = CAVE");
+            // }
+            // else
+            // {
+            //     playerSetup = 3; //or there is only the hmd and it is the VR setup
+            //     Debug.Log("Setup = VR");
+            // }
+        }
+        else if(OpenVR.IsHmdPresent() && displayCount != Display.displays.Length+1 )
+        {
+            playerSetup = 3; //or there is only the hmd and it is the VR setup
+            Debug.Log("Setup = VR");
         }
         else
         {
@@ -69,6 +80,10 @@ public class Li_PlayerSetupDetection : MonoBehaviour
             case 3: Instantiate(vRSetup); break;
             default: Debug.Log("There is either the wrong setup or no prefab to spawn"); break;
         }
+    }
+
+    private void Start()
+    {
     }
 
     #endregion
@@ -92,4 +107,12 @@ public class Li_PlayerSetupDetection : MonoBehaviour
     }
 
     #endregion
+
+    private void ActivateDisplays()
+    {
+         Debug.Log(Display.displays.Length);
+
+        for (int i=1; i< Display.displays.Length; i++)
+            Display.displays[i].Activate();
+    }
 }

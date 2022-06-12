@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 339664096234089757}
   - component: {fileID: 7856372145132215774}
   m_Layer: 0
-  m_Name: LeftHand
+  m_Name: VRLeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 2603881579178246067}
   - component: {fileID: 991489422483705500}
   m_Layer: 0
-  m_Name: 'RightHand '
+  m_Name: 'VRRightHand '
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -629,8 +629,9 @@ GameObject:
   - component: {fileID: 4905844820467249481}
   - component: {fileID: 8458393262156648779}
   - component: {fileID: 7881331576357851155}
+  - component: {fileID: 5953449826468804175}
   m_Layer: 0
-  m_Name: Ray Interactor_LeftHand
+  m_Name: VRRay Interactor_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,6 +1135,22 @@ MonoBehaviour:
   m_SnapThresholdDistance: 10
   m_Reticle: {fileID: 0}
   m_StopLineAtFirstRaycastHit: 1
+--- !u!114 &5953449826468804175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315998465903220365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &2533399623781510715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1245,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2533399623781510727}
   - {fileID: 2930958191762748805}
+  - {fileID: 5953449826468804175}
   - {fileID: 7945342850749370870}
   sceneViewId: 0
   InstantiationId: 0

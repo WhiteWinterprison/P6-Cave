@@ -23,22 +23,37 @@ public class ConnectionCable : MonoBehaviour
     
     private float currentEnergy = 0;
 
+    private Renderer _renderer;
 
+    [SerializeField]
+    private GameObject childWithShader;
+
+    private Material mat;
     private void Start()
     {
+        mat = childWithShader.GetComponent<Renderer>().material;
+        _renderer = GetComponent<Renderer>();
         initialScale = transform.localScale;
         CableManager = FindObjectOfType<CableManagement>();
+
     }
     private void Update()
     {
         if (checkConnect())
         {
+            if (_renderer)
+                _renderer.enabled = true;
             changeTransform();
 
         } else
         {
+            if(_renderer)
+                _renderer.enabled = false;
             //make object invisible later
         }
+        Debug.Log(currentEnergy);
+        if(mat)
+            mat.SetFloat("_ElectricityNoiseScale", currentEnergy);
     }
 
 
@@ -105,5 +120,10 @@ public class ConnectionCable : MonoBehaviour
                 currentEnergy += energyToTransfer;
             }
         }
+    }
+
+    public void resetEnergy()
+    {
+        currentEnergy = 0;
     }
 }

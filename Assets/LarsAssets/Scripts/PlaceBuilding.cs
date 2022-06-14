@@ -9,8 +9,11 @@ public class PlaceBuilding : MonoBehaviour
     RaycastHit hit;
     public GameObject prefab;
 
+
+    // script for mouse interaction
+
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -34,6 +37,17 @@ public class PlaceBuilding : MonoBehaviour
         {
                 Instantiate(prefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
+        }
+    }*/
+
+
+    //script for VR interaction
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

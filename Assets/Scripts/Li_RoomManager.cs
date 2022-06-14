@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//Lisa Fröhlich Gabra, Expanded Realities, Semester 6th//
+//Lisa Frï¿½hlich Gabra, Expanded Realities, Semester 6th//
 //Group 1: HEL                                         //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -33,8 +33,11 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
     [SerializeField]
     private string vrName;
 
-    [Header("The Range for the Spawning Position")]
+    [Header("The Spawning Positions for the different Player Setups")]
     [SerializeField]
+    private Transform vrSpawn;
+    [SerializeField]
+    private Transform caveSpawn;
     private float range = 3.0f;
 
     #endregion
@@ -79,8 +82,8 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
             switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
             {
                 case 1: PhotonNetwork.Instantiate(defaultName, spawnPos, Quaternion.identity); break;
-                case 2: PhotonNetwork.Instantiate(caveName, spawnPos, Quaternion.identity); break;
-                case 3: PhotonNetwork.Instantiate(vrName, spawnPos, Quaternion.identity); break;
+                case 2: PhotonNetwork.Instantiate(caveName, caveSpawn.position, Quaternion.identity); break;
+                case 3: PhotonNetwork.Instantiate(vrName, vrSpawn.position, Quaternion.identity); break;
                 default: break;
             }
         }

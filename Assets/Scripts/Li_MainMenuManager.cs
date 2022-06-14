@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//Lisa Fröhlich Gabra, Expanded Realities, Semester 6th//
+//Lisa Frï¿½hlich Gabra, Expanded Realities, Semester 6th//
 //Group 1: HEL                                         //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -91,7 +91,7 @@ public class Li_MainMenuManager : MonoBehaviour
         {
             case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; break;
             case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; break;
-            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; GetComponent<Li_ResizeCanvasForVR>().ResizeCanvas(canvas, player); break;
+            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; /*GetComponent<Li_ResizeCanvasForVR>().ResizeCanvas(canvas, player);*/ break;
             default: break;
         }
     }

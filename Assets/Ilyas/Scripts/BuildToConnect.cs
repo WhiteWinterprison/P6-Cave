@@ -19,6 +19,9 @@ public class BuildToConnect : MonoBehaviour
     private float energyProduction = 0;
     private float currentEnergy;
 
+    [SerializeField]
+    private float customEnergyToSend = 15;
+
     //both bool for debugging purposes
     public bool isSendAll;
     public bool isDebug;
@@ -129,6 +132,15 @@ public class BuildToConnect : MonoBehaviour
         foreach (ConnectionCable item in Connections)
         {
             sendEnergy(item, currentEnergy);
+        }
+    }
+
+    //When Activated externally will send custom Energy to each connected cable
+    public void sendCustomEnergy()
+    {
+        foreach (ConnectionCable item in Connections)
+        {
+            sendEnergy(item, customEnergyToSend);
         }
     }
 }

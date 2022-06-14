@@ -9,8 +9,17 @@ public class CaveParallax : MonoBehaviour
     [SerializeField]
     private float parallaxStrength;
 
+    private float rotationOffset;
+
+
+    private void Start()
+    {
+        rotationOffset = headRotation.rotation.eulerAngles.y;
+    }
+
     private void Update()
     {
-        transform.localPosition = headRotation.forward * parallaxStrength;
+        transform.localPosition = Quaternion.AngleAxis(-rotationOffset,Vector3.up) * headRotation.forward * parallaxStrength;
+        Debug.Log(rotationOffset);
     }
 }

@@ -17,6 +17,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class Li_ModeManager
@@ -73,6 +74,11 @@ public class Li_ModeManager
         if (clicked) clicked = false;
         else clicked = true;
     }
+
+    public string GetModeText()
+    {
+        return modeText;
+    }
 }
 
 public class BuildMode : Li_ModeManager
@@ -94,7 +100,10 @@ public class BuildMode : Li_ModeManager
     {
         //base.Update();
 
-        //set the button text
+        //-----------------------------------------//
+        //do your simulation mode funcionality here//
+        //-----------------------------------------//
+
         if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
 
         //switch the mode if button was clicked
@@ -131,7 +140,10 @@ public class SimulationMode : Li_ModeManager
     {
         //base.Update();
 
-        //set the button text
+        //-----------------------------------------//
+        //do your simulation mode funcionality here//
+        //-----------------------------------------//
+
         if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
 
         //switch the mode if button was clicked

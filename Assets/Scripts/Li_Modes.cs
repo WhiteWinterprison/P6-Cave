@@ -16,6 +16,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Hashtable = ExitGames.Client.Photon.Hashtable; //This line need to be on every script that uses the Hashtable!!
 
 public class Li_Modes : MonoBehaviour
 {
@@ -43,5 +45,18 @@ public class Li_Modes : MonoBehaviour
     public void SwitchModes()
     {
         currentState.SwitchClicked();
+    }
+
+    public Li_ModeManager GetCurrentState()
+    {
+        return currentState;
+    }
+
+    public void IncreaseData()
+    {
+        Li_RoomManager.Instance.myData = (int)PhotonNetwork.CurrentRoom.CustomProperties["Data"];
+        Li_RoomManager.Instance.myData++;
+        Hashtable setInt = new Hashtable() { { "Data", Li_RoomManager.Instance.myData } };
+        PhotonNetwork.CurrentRoom.SetCustomProperties(setInt);
     }
 }

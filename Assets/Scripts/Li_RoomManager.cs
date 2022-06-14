@@ -19,6 +19,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using Hashtable = ExitGames.Client.Photon.Hashtable; //This line need to be on every script that uses the Hashtable!!
 
 //deriving from MonoBehaviour Callbacks instead of MonoBehaviour for more PUN specific functionality
 public class Li_RoomManager : MonoBehaviourPunCallbacks
@@ -36,6 +37,13 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
     [Header("The Range for the Spawning Position")]
     [SerializeField]
     private float range = 3.0f;
+
+    //----------------------------------------------------------------//
+    //set up the data that needs to be handed over between multiplayer//
+    //----------------------------------------------------------------//
+
+    public int myData = (int)PhotonNetwork.CurrentRoom.CustomProperties["Data"];
+    Hashtable setInt = new Hashtable();
 
     #endregion
 
@@ -59,6 +67,11 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
     {
         //register to delegate
         SceneManager.sceneLoaded += OnSceneLoad;
+
+        //set the first states of the data
+
+        setInt.Add("Data", 0);
+        PhotonNetwork.CurrentRoom.SetCustomProperties(setInt);
     }
 
     private void OnDestroy()

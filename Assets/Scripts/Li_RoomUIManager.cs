@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
+using Hashtable = ExitGames.Client.Photon.Hashtable; //This line need to be on every script that uses the Hashtable!!
+
 
 public class Li_RoomUIManager : MonoBehaviour
 {
@@ -35,6 +37,10 @@ public class Li_RoomUIManager : MonoBehaviour
     private GameObject cavePanel;
     [SerializeField]
     private GameObject vrPanel;
+
+    [Header("The Button to visualize Data Transfer in Multiplayer")]
+    [SerializeField]
+    private GameObject dataButton;
 
     #endregion
 
@@ -64,13 +70,17 @@ public class Li_RoomUIManager : MonoBehaviour
             case 3: vrPanel.SetActive(true); GetComponent<Li_ResizeCanvasForVR>().ResizeCanvas(canvas, player); break;
             default: break;
         }
+
+        //visualize the first state of the data int
+        int textInputInt = (int)PhotonNetwork.CurrentRoom.CustomProperties["Data"];
+        dataButton.GetComponentInChildren<TextMeshProUGUI>().text = textInputInt.ToString();
+    }
+
+    private void Update()
+    {
+        Li_RoomManager.Instance.myData = (int)PhotonNetwork.CurrentRoom.CustomProperties["Data"];
+        if (dataButton.GetComponentInChildren<TextMeshProUGUI>().text != Li_RoomManager.Instance.myData.ToString()) dataButton.GetComponentInChildren<TextMeshProUGUI>().text = Li_RoomManager.Instance.myData.ToString();
     }
 
     #endregion
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

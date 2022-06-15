@@ -523,33 +523,11 @@
                 },
                 {
                     "name": "",
-                    "id": "307d61b4-cd90-4e2f-bb38-6521860856e6",
-                    "path": "<ViveController>{LeftHand}/trackpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Teleport Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8da6ed3a-f621-49fe-8c76-1f6b7d7754d6",
                     "path": "<XRController>{LeftHand}/Primary2DAxis",
                     "interactions": "Sector(directions=1)",
                     "processors": "",
                     "groups": "Noncontinuous Move",
-                    "action": "Teleport Mode Activate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "20bffa97-0be4-429e-a8fb-ddb0d5b67f58",
-                    "path": "<ViveController>{LeftHand}/trackpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "Teleport Mode Activate",
                     "isComposite": false,
                     "isPartOfComposite": false

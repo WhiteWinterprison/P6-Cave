@@ -35,7 +35,7 @@ public class Li_PlayerSetupDetection : MonoBehaviour
 
     [Header("How many Displays for the CAVE Setup")]
     [SerializeField]
-    private int displayCount = 6;
+    private int displayCount = 5; //6 will not work because you count 0,1,2,3,4,5 -> which will be 6 screens
 
     #endregion
 
@@ -45,11 +45,11 @@ public class Li_PlayerSetupDetection : MonoBehaviour
     {
         ActivateDisplays();
 
-        if (OpenVR.IsHmdPresent() && displayCount == Display.displays.Length+1) //if there is a HMD present
+        if (OpenVR.IsHmdPresent() && displayCount  <= Display.displays.Length) //if there is a HMD present && we have MORE than 5 screens
         {
-
-             playerSetup = 2; //the setup is the CAVE setup
-                Debug.Log("Setup = CAVE");
+            //the setup is the CAVE setup
+            playerSetup = 1; 
+            Debug.Log("Setup = CAVE");
 
             // if (Display.displays.Length == displayCount - 1) //and there multiple displays
             // {
@@ -62,30 +62,27 @@ public class Li_PlayerSetupDetection : MonoBehaviour
             //     Debug.Log("Setup = VR");
             // }
         }
-        else if(OpenVR.IsHmdPresent() && displayCount != Display.displays.Length+1 )
+        else if(OpenVR.IsHmdPresent() && displayCount > Display.displays.Length)//if we have a HMD but LESS than 5 screens
         {
-            playerSetup = 3; //or there is only the hmd and it is the VR setup
+            //Vr Hsetup
+            playerSetup = 2; 
             Debug.Log("Setup = VR");
         }
         else
         {
-            playerSetup = 1; //or there is only the hmd and it is the VR setup
+            //debug setup load PC camera
+            playerSetup = 0; 
             Debug.Log("Setup = default");
         }
 
         switch (playerSetup)
         {
-            case 1: Instantiate(defaultCamera); break;
-            case 2: Instantiate(caveSetup); break;
-            case 3: Instantiate(vRSetup); break;
+            case 0: Instantiate(defaultCamera); break;
+            case 1: Instantiate(caveSetup); break;
+            case 2: Instantiate(vRSetup); break;
             default: Debug.Log("There is either the wrong setup or no prefab to spawn"); break;
         }
     }
-
-    private void Start()
-    {
-    }
-
     #endregion
 
     #region Further Changes to Setup
@@ -99,9 +96,9 @@ public class Li_PlayerSetupDetection : MonoBehaviour
     {
         switch (playerSetup)
         {
-            case 1: playerSetup++ ; Debug.Log("Player Setup now CAVE"); break; //switch to the HMD setup
-            case 2: playerSetup++ ; Debug.Log("Player Setup now VR"); break; //switch to the VR setup
-            case 3: playerSetup = 1; Debug.Log("Player Setup now default"); break; //switch to the default setup
+            case 0: playerSetup++ ; Debug.Log("Player Setup now CAVE"); break; //switch to the HMD setup
+            case 1: playerSetup++ ; Debug.Log("Player Setup now VR"); break; //switch to the VR setup
+            case 2: playerSetup = 0; Debug.Log("Player Setup now default"); break; //switch to the default setup
             default: break;
         }
     }

@@ -19,6 +19,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using Photon.Pun;
 
 public class Li_ModeManager
 {
@@ -41,7 +42,6 @@ public class Li_ModeManager
     protected EVENT stage; //phase the state is in
     protected Li_ModeManager nextState; //ref to the state maschine (not ENUM)
     protected GameObject button; //ref to the switch button
-    protected bool clicked = false; //bool to check for button to switch modes
     protected string modeText;
 
     //constructor to create the different states
@@ -69,12 +69,6 @@ public class Li_ModeManager
         return this;
     }
 
-    public void SwitchClicked()
-    {
-        if (clicked) clicked = false;
-        else clicked = true;
-    }
-
     public string GetModeText()
     {
         return modeText;
@@ -93,6 +87,7 @@ public class BuildMode : Li_ModeManager
 
     public override void Enter()
     {
+        Debug.Log("entered Build Mode");
         base.Enter();
     }
 
@@ -107,9 +102,9 @@ public class BuildMode : Li_ModeManager
         if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
 
         //switch the mode if button was clicked
-        if (clicked)
+        bool modeBoolean = true; //to store the value from the network
+        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode(modeBoolean) == false)
         {
-            SwitchClicked();
             nextState = new SimulationMode(button); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
@@ -133,6 +128,7 @@ public class SimulationMode : Li_ModeManager
 
     public override void Enter()
     {
+        Debug.Log("entered Simulation Mode");
         base.Enter();
     }
 
@@ -147,9 +143,9 @@ public class SimulationMode : Li_ModeManager
         if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
 
         //switch the mode if button was clicked
-        if (clicked)
+        bool modeBoolean = false; //to store the value from the network
+        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode(modeBoolean) == true)
         {
-            SwitchClicked();
             nextState = new BuildMode(button); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }

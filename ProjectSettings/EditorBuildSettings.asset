@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Ilya.unity
     guid: 0a0d64fff713a2646ac03f993e7993b3
   - enabled: 0
-    path: Assets/Scenes/John.unity
+    path: Assets/Z_JonsStuff/DEPRECATED - only there for documentation.unity
     guid: 3afacaae632d83f4a965ac20c60d3e08
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 4b8820355652f0d4bbe10b5ac701a875, type: 2}

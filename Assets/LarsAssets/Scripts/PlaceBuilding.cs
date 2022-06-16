@@ -42,12 +42,12 @@ public class PlaceBuilding : MonoBehaviour
 
 
     //script for VR interaction
-    void OnCollisionEnter(Collision other)
+    /*void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Instantiate(prefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-    }
+    }*/
 }

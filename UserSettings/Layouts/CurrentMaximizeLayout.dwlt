@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 561
+  controlID: 7684
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 562
+  controlID: 7685
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 563
+  controlID: 7652
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.807276, y: 1.406734, z: -2.0629904}
+    m_Target: {x: -4.9120502, y: 5.9568043, z: -1.1950436}
     speed: 2
-    m_Value: {x: -4.807276, y: 1.406734, z: -2.0629904}
+    m_Value: {x: -4.9120502, y: 5.9568043, z: -1.1950436}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -573,13 +573,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.31584322, y: -0.4718618, z: 0.18612756, w: -0.80199236}
+    m_Target: {x: 0.10161766, y: -0.36083555, z: -0.039394956, w: -0.92637676}
     speed: 2
-    m_Value: {x: -0.31580442, y: -0.4718038, z: 0.18610469, w: -0.8018938}
+    m_Value: {x: 0.101604745, y: -0.36078972, z: -0.03938995, w: -0.92625904}
   m_Size:
-    m_Target: 35.794495
+    m_Target: 8.361166
     speed: 2
-    m_Value: 35.794495
+    m_Value: 8.361166
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -740,24 +740,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 72790000
+    m_LastClickedInstanceID: 31090
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Building_A1_prefab_textured
-      m_OriginalName: Building_A1_prefab_textured
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 31192
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:
@@ -859,7 +859,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 31090
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

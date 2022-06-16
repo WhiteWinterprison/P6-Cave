@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class PlaceBuilding : MonoBehaviour
 {
-    RaycastHit hit;
+    //RaycastHit hit;
     public GameObject prefab;
+    bool placedBuilding;
 
 
     // script for mouse interaction
@@ -42,12 +43,22 @@ public class PlaceBuilding : MonoBehaviour
 
 
     //script for VR interaction
-    /*void OnCollisionEnter(Collision other)
+    void Start()
+    {
+        placedBuilding = false;
+    }
+
+    void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Instantiate(prefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            if(placedBuilding == false)
+            {
+                Instantiate(prefab, transform.position, Quaternion.identity);
+                Debug.Log("spawn");
+                Destroy(gameObject);
+                placedBuilding = true;
+            }
         }
-    }*/
+    }
 }

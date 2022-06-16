@@ -39,6 +39,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2025852394098628806}
     m_Modifications:
+    - target: {fileID: 5085248643674325640, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5828444199919258440, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
       propertyPath: m_Name
       value: Building_A1
@@ -46,6 +50,18 @@ PrefabInstance:
     - target: {fileID: 5833634366608036368, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833634366608036368, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833634366608036368, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833634366608036368, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5833634366608036368, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,7 +103,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7010102070393265752, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13f96419a3039054ab43027d0e9757fb, type: 3}
 --- !u!4 &2025632102513672990 stripped
 Transform:

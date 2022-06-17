@@ -83,7 +83,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.InRoom)
         {
             //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
+            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
             {
                 case 1: PhotonNetwork.Instantiate(defaultName, spawnPos, Quaternion.identity); break;
                 case 2: PhotonNetwork.Instantiate(caveName, spawnPos, Quaternion.identity); break;
@@ -94,7 +94,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
         else
         {
             //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
+            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
             {
                 case 1: Instantiate(Resources.Load(defaultName), spawnPos, Quaternion.identity); break;
                 case 2: Instantiate(Resources.Load(caveName), spawnPos, Quaternion.identity); break;

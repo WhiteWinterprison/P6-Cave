@@ -248,7 +248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 369859490}
   - component: {fileID: 369859489}
-  - component: {fileID: 369859491}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -295,22 +294,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &369859491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369859488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5362fb8a2ae5e040a1de120b301e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 0.002
-  xPos: 0
-  yPos: 1.1
-  zPos: 2
 --- !u!1 &389324946
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 444865150}
   - component: {fileID: 444865149}
-  - component: {fileID: 444865151}
+  - component: {fileID: 444865152}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -529,7 +512,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &444865151
+--- !u!114 &444865152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -538,7 +521,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 444865148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4bf247b72a19446acf904781ca4236, type: 3}
+  m_Script: {fileID: 11500000, guid: 14f2902c954abc144bfc433b61bfee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCamera: {fileID: 1384172426328812640, guid: de564fb8e3112954d9277225094fb345, type: 3}
@@ -1621,9 +1604,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369859489}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: SwitchPlayer
+      - m_Target: {fileID: 444865152}
+        m_TargetAssemblyTypeName: Li_PlayerSetup, Assembly-CSharp
+        m_MethodName: ChangePlayerSetup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

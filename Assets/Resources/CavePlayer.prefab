@@ -222,7 +222,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7864000468315854960}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.339}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -297,7 +297,6 @@ MonoBehaviour:
   - {fileID: 7864000468315854959}
   - {fileID: 7864000469377314366}
   - {fileID: 7864000469356008746}
-  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -448,6 +447,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7864000468315854956}
     m_Modifications:
+    - target: {fileID: 1008811565220177944, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008811565553756085, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1008811566030080382, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
       propertyPath: m_Icon
       value: 
@@ -470,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1008811566030080383, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1008811566030080383, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -503,6 +510,22 @@ PrefabInstance:
     - target: {fileID: 1008811566030080383, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008811566089413051, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008811566278323432, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008811566582764851, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008811566664208934, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+      propertyPath: m_GateFitMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}

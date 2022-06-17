@@ -16,6 +16,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using Photon.Pun;
 
 public class Li_DisableOtherTrackers : MonoBehaviour
@@ -29,9 +30,16 @@ public class Li_DisableOtherTrackers : MonoBehaviour
             {
                 if (!obj.GetComponent<PhotonView>().IsMine)
                 {
-                    foreach (Camera cam in obj.GetComponentsInChildren<Camera>())
+                    //disable the tracked pose driver (on the head)
+                    foreach (TrackedPoseDriver poseDriver in obj.GetComponentsInChildren<TrackedPoseDriver>())
                     {
-                        cam.enabled = false;
+                        poseDriver.enabled = false;
+                    }
+
+                    //disable the XR controllers (on the hands)
+                    foreach (XRController controller in obj.GetComponentsInChildren<XRController>())
+                    {
+                        //disable this component
                     }
                 }
             }

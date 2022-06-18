@@ -4,22 +4,21 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 
-//Script: Disableing the other users tracking to avoid tracking problems
+//Script: Disableing the other users audio listeners to avoid audio problems
 
 
 //What it do:
 // - check if the player is inside a room
 // - searches for all other players than the users
-// - disables all the other players Tracked Pose Drivers
+// - disables all the other players Audio Listeners
 
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 using Photon.Pun;
 
-public class Li_DisableOtherTrackers : MonoBehaviour
+public class Li_DisableOtherAudioListeners : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -30,13 +29,11 @@ public class Li_DisableOtherTrackers : MonoBehaviour
             {
                 if (!obj.GetComponent<PhotonView>().IsMine)
                 {
-                    //disable the tracked pose driver (on the head)
-                    foreach (TrackedPoseDriver poseDriver in obj.GetComponentsInChildren<TrackedPoseDriver>())
+                    //disable the audio listeners (iside the cameras)
+                    foreach (AudioListener audioListener in obj.GetComponentsInChildren<AudioListener>())
                     {
-                        poseDriver.enabled = false;
+                        audioListener.enabled = false;
                     }
-
-                    //the code to disable tracking of the XR Controllers
                 }
             }
         }

@@ -25,7 +25,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 {
     #region Variables
 
-    [Header("The Names of the possible Player Prefabs")]
+    /*[Header("The Names of the possible Player Prefabs")]
     [SerializeField]
     private string defaultName;
     [SerializeField]
@@ -35,11 +35,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 
     [Header("The Range for the Spawning Position")]
     [SerializeField]
-    private float range = 3.0f;
-
-    //----------------------------------------------------------------//
-    //set up the data that needs to be handed over between multiplayer//
-    //----------------------------------------------------------------//
+    private float range = 3.0f;*/
 
     #endregion
 
@@ -78,30 +74,8 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-range, range), 0.0f, Random.Range(-range, range));
-
-        if (PhotonNetwork.InRoom)
-        {
-            //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
-            {
-                case 1: PhotonNetwork.Instantiate(defaultName, spawnPos, Quaternion.identity); break;
-                case 2: PhotonNetwork.Instantiate(caveName, spawnPos, Quaternion.identity); break;
-                case 3: PhotonNetwork.Instantiate(vrName, spawnPos, Quaternion.identity); break;
-                default: break;
-            }
-        }
-        else
-        {
-            //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
-            {
-                case 1: Instantiate(Resources.Load(defaultName), spawnPos, Quaternion.identity); break;
-                case 2: Instantiate(Resources.Load(caveName), spawnPos, Quaternion.identity); break;
-                case 3: Instantiate(Resources.Load(vrName), spawnPos, Quaternion.identity); break;
-                default: break;
-            }
-        }
+        //reload the player setup to spawn the player prefab correctly
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().SpawnMyPlayer();
     }
 
     #endregion

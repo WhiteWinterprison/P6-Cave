@@ -204,10 +204,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7864000468315854956}
   - component: {fileID: 7864000468315854957}
-  - component: {fileID: 7864000468315854958}
   - component: {fileID: 7864000468315854959}
   - component: {fileID: 7267805092811016129}
   - component: {fileID: 7591634874698721814}
+  - component: {fileID: -6783626974707951443}
+  - component: {fileID: 8301814899673723451}
   m_Layer: 0
   m_Name: CavePlayer
   m_TagString: Player
@@ -247,18 +248,6 @@ CapsuleCollider:
   m_Height: 1.75
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
---- !u!114 &7864000468315854958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7864000468315854960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 213d10f986323fe418d79b1ce7fa2f45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7864000468315854959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +299,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5738574218b10247b41493cdeef84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6783626974707951443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130a6961469a3c4d8f4e838474611e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8301814899673723451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0664f1af7c7e99b4eb0e65ac3bacce28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7864000469356008748

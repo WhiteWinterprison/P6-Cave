@@ -18,7 +18,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Li_DisableingOtherCameras : MonoBehaviour
+public class Li_SettingUpCameras : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -36,5 +36,8 @@ public class Li_DisableingOtherCameras : MonoBehaviour
                 }
             }
         }
+
+        //assign your own camera to the UI
+        GameObject.FindGameObjectWithTag("Panel").GetComponent<Canvas>().worldCamera = this.GetComponent<Camera>();
     }
 }

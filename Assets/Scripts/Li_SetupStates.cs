@@ -16,6 +16,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Li_SetupStates
 {
@@ -37,11 +38,25 @@ public class Li_SetupStates
 
     protected EVENT stage; //phase the state is in
     protected Li_SetupStates nextState; //ref to the state maschine (not ENUM)
+    protected GameObject myPrefab;
+    protected string myName;
+    protected GameObject defaultPrefab; //ref to the player prefab for desktop
+    protected string defaultName; //ref to the desktop prefabs name
+    protected GameObject cavePrefab; //ref to the player prefab for CAVE
+    protected string caveName; //ref to the CAVE prefabs name
+    protected GameObject vrPrefab; //ref to the player prefab for CAVE
+    protected string vrName; //ref to the CAVE prefabs name
 
     //constructor to create the different states
-    public Li_SetupStates()
+    public Li_SetupStates(GameObject _defaultPrefab, string _defaultName, GameObject _cavePrefab, string _caveName, GameObject _vrPrefab, string _vrName)
     {
         stage = EVENT.ENTER;
+        defaultPrefab = _defaultPrefab;
+        defaultName = _defaultName;
+        cavePrefab = _cavePrefab;
+        caveName = _caveName;
+        vrPrefab = _vrPrefab;
+        vrName = _vrName;
     }
 
     //defining the three stages
@@ -65,19 +80,33 @@ public class Li_SetupStates
     //------------------------------------//
     //HERE: Implement base class functions//
     //------------------------------------//
+
+    //function to be able to enter the same state again (e.g. scene change)
+    public void ReloadState(Li_SetupStates myState)
+    {
+        nextState = myState; //reload the state you are currently in
+        stage = EVENT.EXIT; //leave the current state
+    }
 }
 
 public class DefaultState : Li_SetupStates
 {
-    public DefaultState()
-        : base() //hand over the values to the base class
+    public DefaultState(GameObject _defaultPrefab, string _defaultName, GameObject _cavePrefab, string _caveName, GameObject _vrPrefab, string _vrName)
+        : base(_defaultPrefab, _defaultName, _cavePrefab, _caveName, _vrPrefab, _vrName) //hand over the values to the base class
     {
         name = STATE.DEFAULT;
+        defaultPrefab = _defaultPrefab;
+        defaultName = _defaultName;
+        cavePrefab = _cavePrefab;
+        caveName = _caveName;
+        vrPrefab = _vrPrefab;
+        vrName = _vrName;
+        myPrefab = _defaultPrefab;
+        myName = _defaultName;
     }
 
     public override void Enter()
     {
-        Debug.Log("entered default state");
         base.Enter();
     }
 
@@ -85,34 +114,49 @@ public class DefaultState : Li_SetupStates
     {
         //base.Update();
 
+        if (GameObject.FindGameObjectsWithTag("Player") == null)
+        {
+            //Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().SpawnMyPlayer(myName, myPrefab);
+        }
+
         if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 2)
         {
-            nextState = new CaveState(); //the next state is the angry state
+            nextState = new CaveState(defaultPrefab, defaultName, cavePrefab, caveName, vrPrefab, vrName); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
         else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 3)
         {
-            nextState = new VrState(); //the next state is the angry state
+            nextState = new VrState(defaultPrefab, defaultName, cavePrefab, caveName, vrPrefab, vrName); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
 
     public override void Exit()
     {
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().DestroyMyPlayer();
         base.Exit();
     }
 }
 
 public class CaveState : Li_SetupStates
 {
-    public CaveState()
-        : base() //hand over the values to the base class
+    public CaveState(GameObject _defaultPrefab, string _defaultName, GameObject _cavePrefab, string _caveName, GameObject _vrPrefab, string _vrName)
+        : base(_defaultPrefab, _defaultName, _cavePrefab, _caveName, _vrPrefab, _vrName) //hand over the values to the base class
     {
         name = STATE.CAVE;
+        defaultPrefab = _defaultPrefab;
+        defaultName = _defaultName;
+        cavePrefab = _cavePrefab;
+        caveName = _caveName;
+        vrPrefab = _vrPrefab;
+        vrName = _vrName;
+        myPrefab = _cavePrefab;
+        myName = _caveName;
     }
 
     public override void Enter()
     {
+        //Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().SpawnMyPlayer(myName, myPrefab);
         Debug.Log("entered CAVE state");
         base.Enter();
     }
@@ -123,32 +167,41 @@ public class CaveState : Li_SetupStates
 
         if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 1)
         {
-            nextState = new DefaultState(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
         else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 3)
         {
-            nextState = new VrState(); //the next state is the angry state
+            nextState = new VrState(defaultPrefab, defaultName, cavePrefab, caveName, vrPrefab, vrName); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
 
     public override void Exit()
     {
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().DestroyMyPlayer();
         base.Exit();
     }
 }
 
 public class VrState : Li_SetupStates
 {
-    public VrState()
-        : base() //hand over the values to the base class
+    public VrState(GameObject _defaultPrefab, string _defaultName, GameObject _cavePrefab, string _caveName, GameObject _vrPrefab, string _vrName)
+        : base(_defaultPrefab, _defaultName, _cavePrefab, _caveName, _vrPrefab, _vrName) //hand over the values to the base class
     {
         name = STATE.VR;
+        defaultPrefab = _defaultPrefab;
+        defaultName = _defaultName;
+        cavePrefab = _cavePrefab;
+        caveName = _caveName;
+        vrPrefab = _vrPrefab;
+        vrName = _vrName;
+        myPrefab = _vrPrefab;
+        myName = _vrName;
     }
 
     public override void Enter()
     {
+        //Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().SpawnMyPlayer(myName, myPrefab);
         Debug.Log("entered VR state");
         base.Enter();
     }
@@ -159,18 +212,19 @@ public class VrState : Li_SetupStates
 
         if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 2)
         {
-            nextState = new CaveState(); //the next state is the angry state
+            nextState = new CaveState(defaultPrefab, defaultName, cavePrefab, caveName, vrPrefab, vrName); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
         else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 1)
         {
-            nextState = new DefaultState(); //the next state is the angry state
+            nextState = new DefaultState(defaultPrefab, defaultName, cavePrefab, caveName, vrPrefab, vrName); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
 
     public override void Exit()
     {
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().DestroyMyPlayer();
         base.Exit();
     }
 }

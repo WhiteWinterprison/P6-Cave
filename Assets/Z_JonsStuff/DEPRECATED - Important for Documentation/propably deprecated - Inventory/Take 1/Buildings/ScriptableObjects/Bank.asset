@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbde55e34b784b94bbfc99b1ff87dfb9, type: 3}
+  m_Name: Bank
+  m_EditorClassIdentifier: 
+  id: 1
+  buildingName: Bank
+  environmentalImpact: 10
+  cost: 40000
+  sustainability: 3
+  img: {fileID: 21300000, guid: 6289c9d8fff1e8943a33237b61e37c44, type: 3}
+  obj: {fileID: 8561395452150031969, guid: 3840c8ea4d3f06843b3985fea6362892, type: 3}

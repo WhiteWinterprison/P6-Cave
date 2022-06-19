@@ -2933,7 +2933,7 @@ GameObject:
   - component: {fileID: 6887022631674417363}
   m_Layer: 0
   m_Name: CaveUI
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

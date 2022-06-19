@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lisa_Lobby.unity
     guid: 88d9ebe3a0997b041a77c6c306953741
   - enabled: 0
     path: Assets/Scenes/Isabel.unity
     guid: d9f5b8949782b904cb36331331c59372
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lisa_Room.unity
     guid: 71544ebbe9f40b04dbdd5cad83a10af7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ilya.unity
     guid: 0a0d64fff713a2646ac03f993e7993b3
   - enabled: 0

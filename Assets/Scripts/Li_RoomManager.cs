@@ -25,7 +25,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 {
     #region Variables
 
-    /*[Header("The Names of the possible Player Prefabs")]
+    [Header("The Names of the possible Player Prefabs")]
     [SerializeField]
     private string defaultName;
     [SerializeField]
@@ -35,7 +35,7 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 
     [Header("The Range for the Spawning Position")]
     [SerializeField]
-    private float range = 3.0f;*/
+    private float range = 3.0f;
 
     #endregion
 

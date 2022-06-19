@@ -835,6 +835,9 @@ GameObject:
   - component: {fileID: 6926069313064181979}
   - component: {fileID: 8585042370467163099}
   - component: {fileID: 5984131041850832361}
+  - component: {fileID: 845306436382792583}
+  - component: {fileID: -6758216292611487660}
+  - component: {fileID: -6856637470812413360}
   m_Layer: 0
   m_Name: CavePlayer
   m_TagString: Player
@@ -973,6 +976,42 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 0}
   m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1
+--- !u!114 &845306436382792583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5738574218b10247b41493cdeef84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6758216292611487660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0664f1af7c7e99b4eb0e65ac3bacce28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6856637470812413360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130a6961469a3c4d8f4e838474611e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7864000469356008748
 GameObject:
   m_ObjectHideFlags: 0

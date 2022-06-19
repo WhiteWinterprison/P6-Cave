@@ -1167,6 +1167,10 @@ GameObject:
   - component: {fileID: 7615311466430865977}
   - component: {fileID: 594276546016204307}
   - component: {fileID: 9201656782117456512}
+  - component: {fileID: -8909788610920924013}
+  - component: {fileID: -5117053981666695408}
+  - component: {fileID: -574286826529640147}
+  - component: {fileID: -5036672511319212825}
   m_Layer: 0
   m_Name: VRPlayer-Xr Origin
   m_TagString: Player
@@ -1334,6 +1338,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 594276546016204307}
+--- !u!114 &-8909788610920924013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533399623781510715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d2cb9cc0d3889478832181e1d8746c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportProvider: {fileID: 0}
+--- !u!114 &-5117053981666695408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533399623781510715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130a6961469a3c4d8f4e838474611e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-574286826529640147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533399623781510715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0664f1af7c7e99b4eb0e65ac3bacce28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5036672511319212825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533399623781510715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5738574218b10247b41493cdeef84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2533399623827637758
 GameObject:
   m_ObjectHideFlags: 0

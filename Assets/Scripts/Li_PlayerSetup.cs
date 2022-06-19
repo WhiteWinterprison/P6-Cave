@@ -19,7 +19,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Valve.VR;
 using Photon.Pun;
 
 public class Li_PlayerSetup : MonoBehaviour
@@ -80,11 +79,11 @@ public class Li_PlayerSetup : MonoBehaviour
         ActivateDisplays();
 
         //check for the users setup
-        if (OpenVR.IsHmdPresent() && Display.displays.Length < displayCount - 1) //if there is a HMD present and there are less than 6 screens
+        /*if (OpenVR.IsHmdPresent() && Display.displays.Length < displayCount - 1) //if there is a HMD present and there are less than 6 screens
         {
             playerSetup = 3; //its the VR setup
-        }
-        else if (OpenVR.IsHmdPresent() && Display.displays.Length == displayCount - 1) //if there is a HMD present but there are also 6 displays
+        }*/
+        else if (Display.displays.Length >= displayCount - 1) //if there is a HMD present but there are also 6 displays
         {
             playerSetup = 2; //its the CAVE setup
         }

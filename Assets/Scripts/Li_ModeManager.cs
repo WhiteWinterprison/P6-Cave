@@ -45,10 +45,9 @@ public class Li_ModeManager
     protected string modeText;
 
     //constructor to create the different states
-    public Li_ModeManager(GameObject _button)
+    public Li_ModeManager()
     {
         stage = EVENT.ENTER;
-        button = _button;
     }
 
     //defining the three stages
@@ -69,6 +68,10 @@ public class Li_ModeManager
         return this;
     }
 
+    //------------------------------------//
+    //HERE: Implement base class functions//
+    //------------------------------------//
+
     public string GetModeText()
     {
         return modeText;
@@ -77,16 +80,16 @@ public class Li_ModeManager
 
 public class BuildMode : Li_ModeManager
 {
-    public BuildMode(GameObject _button)
-        : base(_button) //hand over the values to the base class
+    public BuildMode()
+        : base() //hand over the values to the base class
     {
         name = STATE.BUILD;
-        button = _button;
         modeText = "Build Mode";
     }
 
     public override void Enter()
     {
+        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
         Debug.Log("entered Build Mode");
         base.Enter();
     }
@@ -99,13 +102,10 @@ public class BuildMode : Li_ModeManager
         //do your simulation mode funcionality here//
         //-----------------------------------------//
 
-        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
-
         //switch the mode if button was clicked
-        bool modeBoolean = true; //to store the value from the network
-        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode(modeBoolean) == false)
+        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
         {
-            nextState = new SimulationMode(button); //the next state is the angry state
+            nextState = new SimulationMode(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
@@ -118,16 +118,16 @@ public class BuildMode : Li_ModeManager
 
 public class SimulationMode : Li_ModeManager
 {
-    public SimulationMode(GameObject _button)
-        : base(_button) //hand over the values to the base class
+    public SimulationMode()
+        : base() //hand over the values to the base class
     {
         name = STATE.SIMULATE;
-        button = _button;
         modeText = "Simulation Mode";
     }
 
     public override void Enter()
     {
+        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
         Debug.Log("entered Simulation Mode");
         base.Enter();
     }
@@ -140,13 +140,10 @@ public class SimulationMode : Li_ModeManager
         //do your simulation mode funcionality here//
         //-----------------------------------------//
 
-        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
-
         //switch the mode if button was clicked
-        bool modeBoolean = false; //to store the value from the network
-        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode(modeBoolean) == true)
+        if (!Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
         {
-            nextState = new BuildMode(button); //the next state is the angry state
+            nextState = new BuildMode(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }

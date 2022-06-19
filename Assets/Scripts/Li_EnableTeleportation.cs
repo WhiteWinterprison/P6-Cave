@@ -8,7 +8,7 @@
 
 
 //What it do:
-// - 
+// - find the ground and sets the teleportation provider of its teleportation area to be the players teleportation provider
 
 
 using System.Collections;

@@ -29,7 +29,7 @@ public class Li_DisableOtherAudioListeners : MonoBehaviour
             {
                 if (!obj.GetComponent<PhotonView>().IsMine)
                 {
-                    //disable the audio listeners (iside the cameras)
+                    //disable the audio listeners (inside the cameras)
                     foreach (AudioListener audioListener in obj.GetComponentsInChildren<AudioListener>())
                     {
                         audioListener.enabled = false;

@@ -30,9 +30,6 @@ public class Li_MainMenuManager : MonoBehaviour
     [Header("The Canvas")]
     [SerializeField]
     private Canvas canvas;
-    [SerializeField]
-    private string playerTag;
-    private GameObject player;
 
     [Header("The button to connect to the server and the text to display")]
     [SerializeField]
@@ -75,6 +72,7 @@ public class Li_MainMenuManager : MonoBehaviour
         //create the starting state of the main menu//
         //------------------------------------------//
 
+        //set the buttons to the correct state with the correct text
         joinButton.SetActive(false);
         joinButton.GetComponentInChildren<TextMeshProUGUI>().text = noRoom;
         createButton.SetActive(false);
@@ -83,11 +81,7 @@ public class Li_MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        //assign this users player to the player ref
-        player = GameObject.FindGameObjectWithTag(playerTag);
-
         //based on the player setup set the text in the setup switch button
-        //in case of VR setup, also set the canvas to world space with the VR camera as the event camera
         switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
         {
             case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; switchInt = 1; break;
@@ -95,6 +89,8 @@ public class Li_MainMenuManager : MonoBehaviour
             case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; switchInt = 3; break;
             default: break;
         }
+
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().onSetupChanged.Invoke();
     }
 
     #endregion
@@ -123,6 +119,7 @@ public class Li_MainMenuManager : MonoBehaviour
         //------------------------------------------------------------------//
         //handle the user feedback about the currently selected player setup//
         //------------------------------------------------------------------//
+
         if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() != switchInt)
         {
             switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
@@ -159,12 +156,16 @@ public class Li_MainMenuManager : MonoBehaviour
     {
         Debug.Log("Start creation process...");
 
+        //call the function from the Network Manager to create a new room
         Li_NetworkManager.Instance.Interact_CreateNewRoom();
     }
 
     //function provided for the join button
     public void JoinRoom()
     {
+        Debug.Log("Start joining room...");
+
+        //call the function from the Network Manager to join a room
         Li_NetworkManager.Instance.Interact_JoinRoom(joinButton.GetComponentInChildren<TextMeshProUGUI>().text);
     }
 
@@ -201,6 +202,12 @@ public class Li_MainMenuManager : MonoBehaviour
                 joinButton.GetComponentInChildren<TextMeshProUGUI>().text = Li_NetworkManager.Instance.roomNames[roomIndex];
             }
         }
+    }
+
+    public void ChangeSetup()
+    {
+        //call the function from the Player Setup to change the player setup
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().ChangePlayerSetup();
     }
 
     #endregion

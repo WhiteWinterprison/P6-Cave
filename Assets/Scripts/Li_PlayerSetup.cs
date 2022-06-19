@@ -4,14 +4,15 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 
-//Script: Implementation of the states from the SetupStates
+//Script: Handling the Player Setup (or implementing the Setup States)
 
 
 //What it do:
 // - activate all available displays
 // - check for the setup of the player
 // - provides functions to change the setup
-// - provides an unity event to listen to the setup states enetering their Enter() function
+// - provides an unity event to invoke when changing the setup
+// - spawns/respawns the player whenever necessary
 
 
 using System.Collections;
@@ -25,12 +26,11 @@ public class Li_PlayerSetup : MonoBehaviour
 {
     #region Variables
 
-    //default is normal camera
+    //variables for the player Setup
+
     private int playerSetup;
 
-    //event for changing the player setup
-    [SerializeField]
-    private UnityEvent onSetupChanged;
+    public UnityEvent onSetupChanged;
 
     //the variables and refs for spawning the player
 
@@ -56,8 +56,13 @@ public class Li_PlayerSetup : MonoBehaviour
     [SerializeField]
     private GameObject myPrefab;
 
+    [Header("The Variables for calculating the Positions for the Prefabs to spawn in")]
     [SerializeField]
-    private float range = 3.0f; //needed to spawn the player prefab
+    private Transform cavePoint;
+    [SerializeField]
+    private Transform vrPoint;
+    [SerializeField]
+    private float range = 3.0f;
 
     //making the user setup possible
 
@@ -93,16 +98,11 @@ public class Li_PlayerSetup : MonoBehaviour
         {
             onSetupChanged = new UnityEvent();
         }
-
-        onSetupChanged.AddListener(IAmListening);
-
-        //set the first setup
-        onSetupChanged.Invoke();
     }
 
     #endregion
 
-    #region Functions to change Player Setup
+    #region Functions for the Player Setup
 
     //function to see which player setup it is supposed to be
     public int GetPlayerSetup()
@@ -110,7 +110,7 @@ public class Li_PlayerSetup : MonoBehaviour
         return playerSetup;
     }
 
-    //function to switch between the player setups
+    //function to call inside the MainMenuManager function for the Switch Button
     public void ChangePlayerSetup()
     {
         switch (playerSetup)
@@ -124,16 +124,7 @@ public class Li_PlayerSetup : MonoBehaviour
         onSetupChanged.Invoke();
     }
 
-    //function to activate all available displays
-    private void ActivateDisplays()
-    {
-        Debug.Log(Display.displays.Length);
-
-        for (int i = 1; i < Display.displays.Length; i++)
-            Display.displays[i].Activate();
-    }
-    
-    //function provided for the state machine to be able to destroy
+    //function provided for the event to be able to destroy
     public void DestroyMyPlayer()
     {
         if (GameObject.FindGameObjectsWithTag("Player") != null)
@@ -155,12 +146,6 @@ public class Li_PlayerSetup : MonoBehaviour
         }
     }
 
-    //adding this as a listener to the event
-    private void IAmListening()
-    {
-        Debug.Log("I am listening");
-    }
-
     //function to provide the correct variables out of the three choices
     public void PlayerSetupVariables()
     {
@@ -173,22 +158,47 @@ public class Li_PlayerSetup : MonoBehaviour
         }
     }
 
-    //function provided for the state machine to be able to instantiate
+    //function provided for the event to be able to instantiate
     public void SpawnMyPlayer()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-range, range), 1.7f, Random.Range(-range, range));
+        Vector3 spawnPos = new Vector3(0, 0, 0);
 
         if (PhotonNetwork.InRoom)
         {
+            //calculate the correct spawn position
+            switch (playerSetup)
+            {
+                case 1: spawnPos = new Vector3(Random.Range(-range, range), 1.7f, Random.Range(-range, range)); break; //default is spawning in the middle
+                case 2: spawnPos = cavePoint.position; break; //CAVE is spawning inside of the CAVE
+                case 3: spawnPos = vrPoint.position; break; //VR is spawning opposite of them
+                default: Debug.Log("playerSetup wrong value so no spawn position"); break;
+            }
+
             //Instantiates by NAME, be carefull with spelling
             PhotonNetwork.Instantiate(myName, spawnPos, Quaternion.identity);
         }
         else
         {
+            //calculate the correct spawn position
+            spawnPos = new Vector3(Random.Range(-range, range), 1.7f, Random.Range(-range, range));
+
             //Instantiates by NAME, be carefull with spelling
             Instantiate(myPrefab, spawnPos, Quaternion.identity);
         }
     }
 
+    #endregion
+    
+    #region Other needed Functions
+
+    //function to activate all available displays
+    private void ActivateDisplays()
+    {
+        Debug.Log(Display.displays.Length);
+
+        for (int i = 1; i < Display.displays.Length; i++)
+            Display.displays[i].Activate();
+    }
+    
     #endregion
 }

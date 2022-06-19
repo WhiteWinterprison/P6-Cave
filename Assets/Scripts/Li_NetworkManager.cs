@@ -18,9 +18,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.SceneManagement;
 
 //deriving from MonoBehaviour Callbacks instead of MonoBehaviour for more PUN specific functionality
 public class Li_NetworkManager : MonoBehaviourPunCallbacks
@@ -36,6 +36,10 @@ public class Li_NetworkManager : MonoBehaviourPunCallbacks
     [Header("Which Scene to load when Creating a Room")]
     [SerializeField]
     private byte sceneIndex = 1;
+
+    [Header("Which Scene to load when goind back to the Entrance Scene")]
+    [SerializeField]
+    private byte entranceIndex = 0;
 
     #endregion
 
@@ -156,6 +160,29 @@ public class Li_NetworkManager : MonoBehaviourPunCallbacks
         {
             roomNames.Add(room.Name);
         }
+    }
+
+    #endregion
+
+    #region Leave a room
+
+    //function to call in the function provided for the leave room button
+    public void Interact_BackToMenu()
+    {
+        Debug.Log("Trying to leave room...");
+
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        Debug.Log("Left room and load scene...");
+
+        //base.OnLeftRoom();
+
+        //load scene 0
+        //instead of the PHOTON scene handling we use the unity scene manager since we do not need to syncronize the scene load for all users
+        SceneManager.LoadScene(entranceIndex); //index must fit the build settings
     }
 
     #endregion

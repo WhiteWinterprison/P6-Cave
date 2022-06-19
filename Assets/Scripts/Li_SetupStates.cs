@@ -4,30 +4,27 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 
-//Script: State Machine to control the Switch between Building and Simulating Mode
+//Script: State Machine to detect and handle the correct Player Setup
 
 
 //What it do:
 // - provides the ground work for a state machine
-// - provides the base class for the Mode Manager with build and simulate states
-// - holds the two state classes from the state machine (Build and Simulation)
+// - provides the base class for the Setup States with default, CAVE and VR states
+// - holds the three state classes from the state machine (default, CAVE and VR)
 
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
-using TMPro;
-using Photon.Pun;
 
-public class Li_ModeManager
+public class Li_SetupStates
 {
     //define possible states as enumeration
     //ENUM always with capital letters
     public enum STATE
     {
-        BUILD, SIMULATE
+        DEFAULT, CAVE, VR
     };
 
     //the three phases of the states
@@ -40,12 +37,10 @@ public class Li_ModeManager
     public STATE name;
 
     protected EVENT stage; //phase the state is in
-    protected Li_ModeManager nextState; //ref to the state maschine (not ENUM)
-    protected GameObject button; //ref to the switch button
-    protected string modeText;
+    protected Li_SetupStates nextState; //ref to the state maschine (not ENUM)
 
     //constructor to create the different states
-    public Li_ModeManager()
+    public Li_SetupStates()
     {
         stage = EVENT.ENTER;
     }
@@ -56,7 +51,7 @@ public class Li_ModeManager
     public virtual void Exit() { stage = EVENT.EXIT; } //calling Exit calls the function that should be done to exit the current state
 
     //this function gets called from the outside to go from one state to the next
-    public Li_ModeManager Process()
+    public Li_SetupStates Process()
     {
         if (stage == EVENT.ENTER) Enter(); //if in enter, go to update
         if (stage == EVENT.UPDATE) Update(); //if in update, stay there until further notice
@@ -71,26 +66,18 @@ public class Li_ModeManager
     //------------------------------------//
     //HERE: Implement base class functions//
     //------------------------------------//
-
-    public string GetModeText()
-    {
-        return modeText;
-    }
 }
 
-public class BuildMode : Li_ModeManager
+public class DefaultState : Li_SetupStates
 {
-    public BuildMode()
+    public DefaultState()
         : base() //hand over the values to the base class
     {
-        name = STATE.BUILD;
-        modeText = "Build Mode";
+        name = STATE.DEFAULT;
     }
 
     public override void Enter()
     {
-        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
-        Debug.Log("entered Build Mode");
         base.Enter();
     }
 
@@ -98,14 +85,16 @@ public class BuildMode : Li_ModeManager
     {
         //base.Update();
 
-        //-----------------------------------------//
-        //do your simulation mode funcionality here//
-        //-----------------------------------------//
+        //go from this state to another
 
-        //switch the mode if button was clicked
-        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
+        if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 2)
         {
-            nextState = new SimulationMode(); //the next state is the angry state
+            nextState = new CaveState(); //the next state is the angry state
+            stage = EVENT.EXIT; //leave this state
+        }
+        else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 3)
+        {
+            nextState = new VrState(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
@@ -116,19 +105,16 @@ public class BuildMode : Li_ModeManager
     }
 }
 
-public class SimulationMode : Li_ModeManager
+public class CaveState : Li_SetupStates
 {
-    public SimulationMode()
+    public CaveState()
         : base() //hand over the values to the base class
     {
-        name = STATE.SIMULATE;
-        modeText = "Simulation Mode";
+        name = STATE.CAVE;
     }
 
     public override void Enter()
     {
-        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
-        Debug.Log("entered Simulation Mode");
         base.Enter();
     }
 
@@ -136,14 +122,53 @@ public class SimulationMode : Li_ModeManager
     {
         //base.Update();
 
-        //-----------------------------------------//
-        //do your simulation mode funcionality here//
-        //-----------------------------------------//
+        //go from this state to another
 
-        //switch the mode if button was clicked
-        if (!Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
+        if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 1)
         {
-            nextState = new BuildMode(); //the next state is the angry state
+            nextState = new DefaultState();
+            stage = EVENT.EXIT; //leave this state
+        }
+        else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 3)
+        {
+            nextState = new VrState(); //the next state is the angry state
+            stage = EVENT.EXIT; //leave this state
+        }
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+    }
+}
+
+public class VrState : Li_SetupStates
+{
+    public VrState()
+        : base() //hand over the values to the base class
+    {
+        name = STATE.VR;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
+    public override void Update()
+    {
+        //base.Update();
+
+        //go from this state to another
+
+        if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 2)
+        {
+            nextState = new CaveState(); //the next state is the angry state
+            stage = EVENT.EXIT; //leave this state
+        }
+        else if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() == 1)
+        {
+            nextState = new DefaultState(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }

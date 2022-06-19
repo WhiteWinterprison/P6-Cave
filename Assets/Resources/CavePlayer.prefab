@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 7591634874698721814}
   - component: {fileID: 6926069313064181979}
   - component: {fileID: 8585042370467163099}
+  - component: {fileID: 5984131041850832361}
   m_Layer: 0
   m_Name: CavePlayer
   m_TagString: Player
@@ -850,7 +851,7 @@ Transform:
   m_GameObject: {fileID: 7864000468315854960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.339}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.597, y: 3.597, z: 3.597}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7143428109358772447}
@@ -955,6 +956,23 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5984131041850832361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864000468315854960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+  m_OriginBaseGameObject: {fileID: 7864000468315854960}
+  m_CameraFloorOffsetObject: {fileID: 0}
+  m_RequestedTrackingOriginMode: 2
+  m_CameraYOffset: 1
 --- !u!1 &7864000469356008748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1657,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+--- !u!1 &7143428109358772446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1008811566030080382, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}
+  m_PrefabInstance: {fileID: 7864000467961510304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7463748992999149911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143428109358772446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_PositionInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Position Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5402e76a-4852-4203-bdb6-30da08803333
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 5421932872632576437, guid: 5bad93a1e60c45b43932446359a5c44b, type: 3}
+  m_RotationInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Rotation Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 926dd1c0-b6cc-431c-ade6-cfdcb3e7efe8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6697344501719892442, guid: 5bad93a1e60c45b43932446359a5c44b, type: 3}
+  m_PositionAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  m_RotationAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  m_HasMigratedActions: 1
 --- !u!4 &7143428109358772447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1008811566030080383, guid: c4e22150492da6a4e814ed1674efc3b7, type: 3}

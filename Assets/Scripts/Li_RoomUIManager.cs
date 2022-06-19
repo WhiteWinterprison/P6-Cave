@@ -18,9 +18,6 @@ using UnityEngine.Events;
 using Photon.Pun;
 using TMPro;
 
-using Hashtable = ExitGames.Client.Photon.Hashtable; //This line need to be on every script that uses the Hashtable!!
-
-
 public class Li_RoomUIManager : MonoBehaviour
 {
     #region Variables

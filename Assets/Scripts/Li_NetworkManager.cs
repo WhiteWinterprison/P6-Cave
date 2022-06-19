@@ -18,12 +18,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.SceneManagement;
-
-using Hashtable = ExitGames.Client.Photon.Hashtable; //This line need to be on every script that uses the Hashtable!!
 
 //deriving from MonoBehaviour Callbacks instead of MonoBehaviour for more PUN specific functionality
 public class Li_NetworkManager : MonoBehaviourPunCallbacks

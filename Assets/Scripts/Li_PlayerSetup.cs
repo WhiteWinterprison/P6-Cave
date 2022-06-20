@@ -60,8 +60,6 @@ public class Li_PlayerSetup : MonoBehaviour
     private Transform cavePoint;
     [SerializeField]
     private Transform vrPoint;
-    [SerializeField]
-    private float range = 3.0f;
 
     //making the user setup possible
 
@@ -156,14 +154,14 @@ public class Li_PlayerSetup : MonoBehaviour
     //function provided for the event to be able to instantiate
     public void SpawnMyPlayer()
     {
-        Vector3 spawnPos = new Vector3(0, 0, 0);
+        Vector3 spawnPos = new Vector3(0, 1.7f, 0);
 
         if (PhotonNetwork.InRoom)
         {
             //calculate the correct spawn position
             switch (playerSetup)
             {
-                case 1: spawnPos = new Vector3(Random.Range(-range, range), 1.7f, Random.Range(-range, range)); break; //default is spawning in the middle
+                case 1: break; //default is spawning in the middle
                 case 2: spawnPos = cavePoint.position; break; //CAVE is spawning inside of the CAVE
                 case 3: spawnPos = vrPoint.position; break; //VR is spawning opposite of them
                 default: Debug.Log("playerSetup wrong value so no spawn position"); break;
@@ -174,9 +172,6 @@ public class Li_PlayerSetup : MonoBehaviour
         }
         else
         {
-            //calculate the correct spawn position
-            spawnPos = new Vector3(Random.Range(-range, range), 1.7f, Random.Range(-range, range));
-
             //Instantiates by NAME, be carefull with spelling
             Instantiate(myPrefab, spawnPos, Quaternion.identity);
         }

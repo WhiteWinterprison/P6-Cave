@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6383370334692388511}
   - component: {fileID: 6383370334692388508}
-  - component: {fileID: 6383370334692388510}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -46,7 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  playerTag: Player
   serverButton: {fileID: 0}
   connectToServer: Connect to Server
   connectedToServer: Connected
@@ -57,19 +55,3 @@ MonoBehaviour:
   cave: CAVE
   vr: VR
   defaultCamera: normal
---- !u!114 &6383370334692388510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6383370334692388509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5362fb8a2ae5e040a1de120b301e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 0.002
-  xPos: 0
-  yPos: 1.1
-  zPos: 2

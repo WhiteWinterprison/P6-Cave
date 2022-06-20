@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 450004074885347116}
   - component: {fileID: 5083107770733904031}
   - component: {fileID: 5083107770733904030}
+  - component: {fileID: 1919868891}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -65,18 +66,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSetupChanged:
     m_PersistentCalls:
-      m_Calls: []
-  defaultCamera: {fileID: 0}
-  caveSetup: {fileID: 0}
-  vrSetup: {fileID: 0}
-  defaultName: 
-  caveName: 
-  vrName: 
+      m_Calls:
+      - m_Target: {fileID: 450004074885347116}
+        m_TargetAssemblyTypeName: Li_PlayerSetup, Assembly-CSharp
+        m_MethodName: DestroyMyPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 450004074885347116}
+        m_TargetAssemblyTypeName: Li_PlayerSetup, Assembly-CSharp
+        m_MethodName: PlayerSetupVariables
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 450004074885347116}
+        m_TargetAssemblyTypeName: Li_PlayerSetup, Assembly-CSharp
+        m_MethodName: SpawnMyPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  defaultCamera: {fileID: 1384172426328812640, guid: de564fb8e3112954d9277225094fb345, type: 3}
+  caveSetup: {fileID: 7864000468315854960, guid: e9f3a5fc5c01b0c4493871ce5df49109, type: 3}
+  vrSetup: {fileID: 2533399623781510715, guid: 6e97cad3b10898645a1d536d58fa9ed7, type: 3}
+  defaultName: PcPlayer
+  caveName: CavePlayer
+  vrName: VRPlayer-Xr Origin
   myName: 
   myPrefab: {fileID: 0}
-  cavePoint: {fileID: 0}
-  vrPoint: {fileID: 0}
-  range: 3
+  cavePoint: {fileID: 2758619284854114815, guid: 9a65d12bcf7efb842bfa8f8feb9effa7, type: 3}
+  vrPoint: {fileID: 536055432114515738, guid: 466174c4a37af26478315bc7d5ecae3d, type: 3}
   displayCount: 6
 --- !u!114 &5083107770733904031
 MonoBehaviour:
@@ -147,8 +183,136 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 65c66052-a50d-41b0-8479-636de9191e73
     m_ActionName: KeyBoardAction/ChangeSceneDown[/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: CreateRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5df0be7d-baf2-43d5-a4b7-61d2af5f9a99
+    m_ActionName: KeyBoardAction/Create Room[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ConnectToServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bf6f97cf-e755-4f4b-ac6a-5f77512042c8
+    m_ActionName: KeyBoardAction/Connect o Server[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ChangeSetup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b5c0ae96-d188-44b1-83f3-aa1724945fb0
+    m_ActionName: KeyBoardAction/Change Player Setup[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: JoinRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b5f10fb-d939-4244-8d4e-ab5a5b603e84
+    m_ActionName: KeyBoardAction/Join Room[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ShowNextRoom
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_ActionId: 0d22cb05-0028-4284-94b3-33c029c1b1ee
+    m_ActionName: KeyBoardAction/rightRoom[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ShowNextRoom
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e5a16de4-9a85-4479-8af2-eaaf1d4efa10
+    m_ActionName: KeyBoardAction/leftRoom[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bef682cc-4002-4c37-a008-97494d186e79
+    m_ActionName: KeyBoardAction/LeaveRoom[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: KeyBoardAction
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1919868891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083107770733903971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017c5e3933235514c9520e1dace2a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionAssets:
+  - {fileID: -944628639613478452, guid: 5bad93a1e60c45b43932446359a5c44b, type: 3}
+  - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  - {fileID: -944628639613478452, guid: 7f2cef8b34e3f8749b62374d06168531, type: 3}

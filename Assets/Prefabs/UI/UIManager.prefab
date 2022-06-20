@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7047192676279936832}
   - component: {fileID: 7047192676279936835}
-  - component: {fileID: 7047192676279936833}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -45,24 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf501e61a1d30d49b40807057f48fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  playerTag: Player
-  defaultPanel: {fileID: 0}
-  cavePanel: {fileID: 0}
-  vrPanel: {fileID: 0}
---- !u!114 &7047192676279936833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7047192676279936834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5362fb8a2ae5e040a1de120b301e875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: 0.002
-  xPos: 0
-  yPos: 1.1
-  zPos: 2
+  defaultUI: {fileID: 0}
+  caveUI: {fileID: 0}
+  vrUI: {fileID: 0}
+  defaultModeTitle: {fileID: 0}
+  caveModeTitle: {fileID: 0}
+  vrModeTitle: {fileID: 0}

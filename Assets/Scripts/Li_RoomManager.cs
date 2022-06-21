@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//Lisa Frï¿½hlich Gabra, Expanded Realities, Semester 6th//
+//Lisa Fröhlich Gabra, Expanded Realities, Semester 6th//
 //Group 1: HEL                                         //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -33,11 +33,8 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
     [SerializeField]
     private string vrName;
 
-    [Header("The Spawning Positions for the different Player Setups")]
+    [Header("The Range for the Spawning Position")]
     [SerializeField]
-    private Transform vrSpawn;
-    [SerializeField]
-    private Transform caveSpawn;
     private float range = 3.0f;
 
     #endregion
@@ -62,6 +59,9 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
     {
         //register to delegate
         SceneManager.sceneLoaded += OnSceneLoad;
+
+        //set the first states of the data
+
     }
 
     private void OnDestroy()
@@ -74,30 +74,8 @@ public class Li_RoomManager : MonoBehaviourPunCallbacks
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-range, range), 0.0f, Random.Range(-range, range));
-
-        if (PhotonNetwork.InRoom)
-        {
-            //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
-            {
-                case 1: PhotonNetwork.Instantiate(defaultName, spawnPos, Quaternion.identity); break;
-                case 2: PhotonNetwork.Instantiate(caveName, caveSpawn.position, Quaternion.identity); break;
-                case 3: PhotonNetwork.Instantiate(vrName, vrSpawn.position, Quaternion.identity); break;
-                default: break;
-            }
-        }
-        else
-        {
-            //Instantiates by NAME, be carefull with spelling
-            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
-            {
-                case 1: Instantiate(Resources.Load(defaultName), spawnPos, Quaternion.identity); break;
-                case 2: Instantiate(Resources.Load(caveName), spawnPos, Quaternion.identity); break;
-                case 3: Instantiate(Resources.Load(vrName), spawnPos, Quaternion.identity); break;
-                default: break;
-            }
-        }
+        //reload the player setup to spawn the player prefab correctly
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().SpawnMyPlayer();
     }
 
     #endregion

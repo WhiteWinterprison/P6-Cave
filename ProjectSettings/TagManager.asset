@@ -4,15 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - VRUser
+  - CaveUser
   - Panel
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Selectable
   - 
   - 
   - 

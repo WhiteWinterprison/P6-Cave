@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
-//Lisa Frï¿½hlich Gabra, Expanded Realities, Semester 6th//
+//Lisa Fröhlich Gabra, Expanded Realities, Semester 6th//
 //Group 1: HEL                                         //
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -30,9 +30,6 @@ public class Li_MainMenuManager : MonoBehaviour
     [Header("The Canvas")]
     [SerializeField]
     private Canvas canvas;
-    [SerializeField]
-    private string playerTag;
-    private GameObject player;
 
     [Header("The button to connect to the server and the text to display")]
     [SerializeField]
@@ -54,7 +51,7 @@ public class Li_MainMenuManager : MonoBehaviour
     [SerializeField]
     private GameObject createButton;
 
-    [Header("The button to switch between CAVE and VR")]
+    [Header("Switching between the Player Setups")]
     [SerializeField]
     private GameObject switchButton;
     [SerializeField]
@@ -63,6 +60,7 @@ public class Li_MainMenuManager : MonoBehaviour
     private string vr;
     [SerializeField]
     private string defaultCamera;
+    private int switchInt = 0;
 
     #endregion
 
@@ -74,6 +72,7 @@ public class Li_MainMenuManager : MonoBehaviour
         //create the starting state of the main menu//
         //------------------------------------------//
 
+        //set the buttons to the correct state with the correct text
         joinButton.SetActive(false);
         joinButton.GetComponentInChildren<TextMeshProUGUI>().text = noRoom;
         createButton.SetActive(false);
@@ -82,18 +81,16 @@ public class Li_MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        //assign this users player to the player ref
-        player = GameObject.FindGameObjectWithTag(playerTag);
-
         //based on the player setup set the text in the setup switch button
-        //in case of VR setup, also set the canvas to world space with the VR camera as the event camera
-        switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
+        switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
         {
-            case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; break;
-            case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; break;
-            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; /*GetComponent<Li_ResizeCanvasForVR>().ResizeCanvas(canvas, player);*/ break;
+            case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; switchInt = 1; break;
+            case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; switchInt = 2; break;
+            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; switchInt = 3; break;
             default: break;
         }
+
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().onSetupChanged.Invoke();
     }
 
     #endregion
@@ -119,15 +116,20 @@ public class Li_MainMenuManager : MonoBehaviour
             serverButton.GetComponentInChildren<TextMeshProUGUI>().text = connectToServer;
         }
 
-        /*if (NetworkManager.Instance.roomNames == null && joinButton.GetComponentInChildren<TextMeshProUGUI>().text != noRoom)
+        //------------------------------------------------------------------//
+        //handle the user feedback about the currently selected player setup//
+        //------------------------------------------------------------------//
+
+        if (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup() != switchInt)
         {
-            joinButton.GetComponentInChildren<TextMeshProUGUI>().text = noRoom;
-            roomIndex = 0;
+            switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
+            {
+                case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; switchInt = 1; break;
+                case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; switchInt = 2; break;
+                case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; switchInt = 3; break;
+                default: break;
+            }
         }
-        else if (NetworkManager.Instance.roomNames != null && joinButton.GetComponentInChildren<TextMeshProUGUI>().text == noRoom)
-        {
-            joinButton.GetComponentInChildren<TextMeshProUGUI>().text = NetworkManager.Instance.roomNames[roomIndex];
-        }*/
     }
 
     #endregion
@@ -154,12 +156,16 @@ public class Li_MainMenuManager : MonoBehaviour
     {
         Debug.Log("Start creation process...");
 
+        //call the function from the Network Manager to create a new room
         Li_NetworkManager.Instance.Interact_CreateNewRoom();
     }
 
     //function provided for the join button
     public void JoinRoom()
     {
+        Debug.Log("Start joining room...");
+
+        //call the function from the Network Manager to join a room
         Li_NetworkManager.Instance.Interact_JoinRoom(joinButton.GetComponentInChildren<TextMeshProUGUI>().text);
     }
 
@@ -198,17 +204,10 @@ public class Li_MainMenuManager : MonoBehaviour
         }
     }
 
-    public void SwitchPlayer()
+    public void ChangeSetup()
     {
-        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().ChangePlayerSetup();
-
-        switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetupDetection>().GetPlayerSetup())
-        {
-            case 1: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = defaultCamera; break;
-            case 2: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = cave; break;
-            case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; break;
-            default: break;
-        }
+        //call the function from the Player Setup to change the player setup
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().ChangePlayerSetup();
     }
 
     #endregion

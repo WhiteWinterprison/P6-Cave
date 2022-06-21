@@ -17,7 +17,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
+using Photon.Pun;
 
 public class Li_ModeManager
 {
@@ -40,14 +42,12 @@ public class Li_ModeManager
     protected EVENT stage; //phase the state is in
     protected Li_ModeManager nextState; //ref to the state maschine (not ENUM)
     protected GameObject button; //ref to the switch button
-    protected bool clicked = false; //bool to check for button to switch modes
     protected string modeText;
 
     //constructor to create the different states
-    public Li_ModeManager(GameObject _button)
+    public Li_ModeManager()
     {
         stage = EVENT.ENTER;
-        button = _button;
     }
 
     //defining the three stages
@@ -68,25 +68,29 @@ public class Li_ModeManager
         return this;
     }
 
-    public void SwitchClicked()
+    //------------------------------------//
+    //HERE: Implement base class functions//
+    //------------------------------------//
+
+    public string GetModeText()
     {
-        if (clicked) clicked = false;
-        else clicked = true;
+        return modeText;
     }
 }
 
 public class BuildMode : Li_ModeManager
 {
-    public BuildMode(GameObject _button)
-        : base(_button) //hand over the values to the base class
+    public BuildMode()
+        : base() //hand over the values to the base class
     {
         name = STATE.BUILD;
-        button = _button;
         modeText = "Build Mode";
     }
 
     public override void Enter()
     {
+        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
+        Debug.Log("entered Build Mode");
         base.Enter();
     }
 
@@ -94,14 +98,14 @@ public class BuildMode : Li_ModeManager
     {
         //base.Update();
 
-        //set the button text
-        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
+        //-----------------------------------------//
+        //do your simulation mode funcionality here//
+        //-----------------------------------------//
 
         //switch the mode if button was clicked
-        if (clicked)
+        if (Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
         {
-            SwitchClicked();
-            nextState = new SimulationMode(button); //the next state is the angry state
+            nextState = new SimulationMode(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }
@@ -114,16 +118,17 @@ public class BuildMode : Li_ModeManager
 
 public class SimulationMode : Li_ModeManager
 {
-    public SimulationMode(GameObject _button)
-        : base(_button) //hand over the values to the base class
+    public SimulationMode()
+        : base() //hand over the values to the base class
     {
         name = STATE.SIMULATE;
-        button = _button;
         modeText = "Simulation Mode";
     }
 
     public override void Enter()
     {
+        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.Invoke();
+        Debug.Log("entered Simulation Mode");
         base.Enter();
     }
 
@@ -131,14 +136,14 @@ public class SimulationMode : Li_ModeManager
     {
         //base.Update();
 
-        //set the button text
-        if (button.GetComponentInChildren<TextMeshProUGUI>().text != modeText) button.GetComponentInChildren<TextMeshProUGUI>().text = modeText;
+        //-----------------------------------------//
+        //do your simulation mode funcionality here//
+        //-----------------------------------------//
 
         //switch the mode if button was clicked
-        if (clicked)
+        if (!Li_RoomManager.Instance.GetComponent<Li_Modes>().GetRoomMode())
         {
-            SwitchClicked();
-            nextState = new BuildMode(button); //the next state is the angry state
+            nextState = new BuildMode(); //the next state is the angry state
             stage = EVENT.EXIT; //leave this state
         }
     }

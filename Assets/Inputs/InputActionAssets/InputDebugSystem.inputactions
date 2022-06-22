@@ -2,7 +2,7 @@
     "name": "InputDebugSystem",
     "maps": [
         {
-            "name": "KeyBoardAction",
+            "name": "NetworkAction",
             "id": "e6fa3fb3-c1c3-424a-bbb8-b5fd28d8f85e",
             "actions": [
                 {
@@ -12,7 +12,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "ChangeSceneDown",
@@ -21,7 +21,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Create Room",
@@ -30,16 +30,16 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Connect o Server",
+                    "name": "Connect to Server",
                     "type": "Button",
                     "id": "bf6f97cf-e755-4f4b-ac6a-5f77512042c8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Change Player Setup",
@@ -48,7 +48,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Join Room",
@@ -57,7 +57,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "rightRoom",
@@ -66,7 +66,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "leftRoom",
@@ -75,16 +75,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeaveRoom",
-                    "type": "Button",
-                    "id": "bef682cc-4002-4c37-a008-97494d186e79",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=1)",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -128,7 +119,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Connect o Server",
+                    "action": "Connect to Server",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -157,7 +148,7 @@
                 {
                     "name": "",
                     "id": "d3dd886a-f217-434c-8d46-60e697d4ac3b",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/numpad6",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -168,22 +159,79 @@
                 {
                     "name": "",
                     "id": "ddc04969-99fc-447a-bd3c-5f5f981c7a5c",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/numpad4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "leftRoom",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "RoomAction",
+            "id": "d1390512-653b-4139-8dc2-e17fa091a601",
+            "actions": [
+                {
+                    "name": "LeaveRoom",
+                    "type": "Button",
+                    "id": "b53698f1-c583-42c6-b9ca-ecd4477a7412",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": true
                 },
                 {
+                    "name": "Change Player Setup",
+                    "type": "Button",
+                    "id": "238541b6-6d31-409c-93fe-f0fbb336a984",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch Modes",
+                    "type": "Button",
+                    "id": "6df9da5c-02c0-465b-b39f-4e4c1ed79d5f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "67bf642f-3254-40d9-b097-63673f5ae02d",
+                    "id": "33058642-0a86-4162-86ee-5b4d9b5c3bc9",
                     "path": "<Keyboard>/l",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LeaveRoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "514427a1-b5e2-48a7-b6af-976d24bb7097",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Player Setup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d26a655d-0300-4a4f-90a1-b384dd243566",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch Modes",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

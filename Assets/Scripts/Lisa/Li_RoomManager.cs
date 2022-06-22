@@ -23,22 +23,6 @@ using UnityEngine.SceneManagement;
 //deriving from MonoBehaviour Callbacks instead of MonoBehaviour for more PUN specific functionality
 public class Li_RoomManager : MonoBehaviourPunCallbacks
 {
-    #region Variables
-
-    [Header("The Names of the possible Player Prefabs")]
-    [SerializeField]
-    private string defaultName;
-    [SerializeField]
-    private string caveName;
-    [SerializeField]
-    private string vrName;
-
-    [Header("The Range for the Spawning Position")]
-    [SerializeField]
-    private float range = 3.0f;
-
-    #endregion
-
     #region Singleton Pattern
 
     public static Li_RoomManager Instance { set; get; }

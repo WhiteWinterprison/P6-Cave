@@ -41,17 +41,7 @@ public class Li_PlayerSetup : MonoBehaviour
     [SerializeField]
     private GameObject vrSetup;
 
-    [Header("The Names of the possible Player Prefabs")]
-    [SerializeField]
-    private string defaultName;
-    [SerializeField]
-    private string caveName;
-    [SerializeField]
-    private string vrName;
-
-    [Header("The Variables to pass the correct refs to")]
-    [SerializeField]
-    private string myName;
+    [Header("The Variable to pass the correct refs to")]
     [SerializeField]
     private GameObject myPrefab;
 
@@ -144,9 +134,9 @@ public class Li_PlayerSetup : MonoBehaviour
     {
         switch (playerSetup)
         {
-            case 1: myName = defaultName; myPrefab = defaultCamera; Debug.Log("Setup = default"); break; //switch to the default setup
-            case 2: myName = caveName; myPrefab = caveSetup; Debug.Log("Setup = CAVE"); break; //switch to the CAVE setup
-            case 3: myName = vrName; myPrefab = vrSetup; Debug.Log("Setup = VR"); break; //switch to the VR setup
+            case 1: myPrefab = defaultCamera; Debug.Log("Setup = default"); break; //switch to the default setup
+            case 2: myPrefab = caveSetup; Debug.Log("Setup = CAVE"); break; //switch to the CAVE setup
+            case 3: myPrefab = vrSetup; Debug.Log("Setup = VR"); break; //switch to the VR setup
             default: Debug.Log("playerSetup set to wrong value"); break;
         }
     }
@@ -168,7 +158,7 @@ public class Li_PlayerSetup : MonoBehaviour
             }
 
             //Instantiates by NAME, be carefull with spelling
-            PhotonNetwork.Instantiate(myName, spawnPos, Quaternion.identity);
+            PhotonNetwork.Instantiate(myPrefab.name, spawnPos, Quaternion.identity);
         }
         else
         {

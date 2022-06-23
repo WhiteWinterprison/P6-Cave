@@ -8,7 +8,7 @@
 
 
 //What it do:
-// - check if the player is inside a room
+// - checks for the user being inside of the room
 // - searches for all other players than the users
 // - disables all the other players cameras
 // - set the players camera to be the event camera of the UI

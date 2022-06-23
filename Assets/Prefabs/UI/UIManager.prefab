@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf501e61a1d30d49b40807057f48fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultUI: {fileID: 0}
-  caveUI: {fileID: 0}
-  vrUI: {fileID: 0}
+  defaultUI: {fileID: 6075105911420005567, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
+  caveUI: {fileID: 6887022631674417372, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
+  vrUI: {fileID: 1012582228736806956, guid: 3b16958a20a6e5644a1dbeb4b192a33e, type: 3}
   defaultModeTitle: {fileID: 0}
   caveModeTitle: {fileID: 0}
   vrModeTitle: {fileID: 0}

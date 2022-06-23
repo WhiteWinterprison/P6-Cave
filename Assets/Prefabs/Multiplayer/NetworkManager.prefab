@@ -104,10 +104,6 @@ MonoBehaviour:
   defaultCamera: {fileID: 1384172426328812640, guid: de564fb8e3112954d9277225094fb345, type: 3}
   caveSetup: {fileID: 7864000468315854960, guid: e9f3a5fc5c01b0c4493871ce5df49109, type: 3}
   vrSetup: {fileID: 2533399623781510715, guid: 6e97cad3b10898645a1d536d58fa9ed7, type: 3}
-  defaultName: PcPlayer
-  caveName: CavePlayer
-  vrName: VRPlayer-Xr Origin
-  myName: 
   myPrefab: {fileID: 0}
   cavePoint: {fileID: 2758619284854114815, guid: 9a65d12bcf7efb842bfa8f8feb9effa7, type: 3}
   vrPoint: {fileID: 536055432114515738, guid: 466174c4a37af26478315bc7d5ecae3d, type: 3}

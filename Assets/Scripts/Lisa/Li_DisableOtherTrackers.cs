@@ -8,7 +8,7 @@
 
 
 //What it do:
-// - check if the player is inside a room
+// - checks for the user being inside the room
 // - searches for all other players than the users
 // - disables all the other players Tracked Pose Drivers
 // - disables all the other players XR Controllers

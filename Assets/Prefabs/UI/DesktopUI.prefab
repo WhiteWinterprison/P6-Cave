@@ -258,8 +258,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Li_Modes, Assembly-CSharp
-        m_MethodName: SwitchModes
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: LeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -392,8 +392,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Li_Modes, Assembly-CSharp
-        m_MethodName: SwitchModes
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6075105911420005566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,9 +898,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Li_Modes, Assembly-CSharp
-        m_MethodName: SwitchModes
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: ChangeSetup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

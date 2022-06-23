@@ -1,0 +1,484 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2398157175589609562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2398157175589609558}
+  - component: {fileID: 2398157175589609556}
+  - component: {fileID: 2398157175589609557}
+  - component: {fileID: 8274825251796760243}
+  - component: {fileID: 7280691353354031353}
+  m_Layer: 0
+  m_Name: InteractionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2398157175589609558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2398157175589609556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0c5431e-0828-4cee-bfb8-8cc44c93265e
+    m_ActionName: VIVETracker/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78ce47e5-7a3d-4b9a-939a-0b8912666c79
+    m_ActionName: VIVETracker/Rotation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 43a9904b-5608-43d6-a6f5-15f0811faaab
+    m_ActionName: VRController_left/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b617b482-6a64-4a90-9a5d-99b4fe7fbf04
+    m_ActionName: VRController_left/Rotation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 108d26ef-364c-4d25-8a0c-fef7827eef02
+    m_ActionName: VRController_left/TrackingState
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b702e72-5863-4ac2-95b9-63cbf65f4488
+    m_ActionName: VRController_left/HapticDevice
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f73f6e42-8d60-4a40-9c91-c41f457610da
+    m_ActionName: VRController_left/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f93ac6a7-9509-40c7-aba1-fdd9a54e828b
+    m_ActionName: VRController_left/SelectValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47372cef-6e93-4d4e-b864-86c2811b0dac
+    m_ActionName: VRController_left/Activate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5b406a3-e88b-4c17-8677-73fe07b951e6
+    m_ActionName: VRController_left/ActivateValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aaac03d7-ff2e-4d15-968a-705ece3a7813
+    m_ActionName: VRController_left/UIPress
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 32d69ff6-d2c8-4add-8f41-2db88e6ceebc
+    m_ActionName: VRController_left/UIPressValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 147fec15-f4d7-48bb-95fa-75b066a42a24
+    m_ActionName: VRController_left/RotateAnchor
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8df53393-dab6-4cf8-bd1b-dcd91d860de7
+    m_ActionName: VRController_left/TranslateAnchor
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06559bae-c12e-449a-aaa0-4696d6c0aef0
+    m_ActionName: VRController_left/TeleportSelect
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 236131de-c617-4b27-95c7-2efb89f089c5
+    m_ActionName: VRController_left/TeleportModeActivate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f191d22-9a9a-45ee-8600-5b110a23fb88
+    m_ActionName: VRController_left/TeleportModeCancel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0de8e5df-ef73-47d1-bb6f-a8563a5a0994
+    m_ActionName: VRController_left/Turn
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 784ed83c-d287-446f-8715-6952dc42a9bd
+    m_ActionName: VRController_left/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82e47b4f-b3a8-449e-b311-51864f1b0e58
+    m_ActionName: VRController_right/Position
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 078b03d9-00e6-45e7-92eb-d04c3e2b4c11
+    m_ActionName: VRController_right/Rotation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 79c1d154-c043-4b9f-967f-3b8cfc8a0a55
+    m_ActionName: VRController_right/TrackingState
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a42bb3b0-f499-4f72-9b5c-870f223f24e4
+    m_ActionName: VRController_right/HapticDevice
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8b44424-daaa-4cb9-83a3-95b84c6c9688
+    m_ActionName: VRController_right/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 298b76ea-0a2b-44d6-9f88-b391eb957c94
+    m_ActionName: VRController_right/SelectValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c26b8962-8d12-4b96-9477-1924baf1d450
+    m_ActionName: VRController_right/Activate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8869b75-b66b-431e-ab7b-b5c99d2dc5d2
+    m_ActionName: VRController_right/ActivateValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b525f9f-def7-42c6-970d-9ce0f7836bcd
+    m_ActionName: VRController_right/UIPress
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 211941c7-12c1-4f00-a47b-5e73884c405d
+    m_ActionName: VRController_right/UIPressValue
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42112660-e833-429f-a541-48cbc4818d57
+    m_ActionName: VRController_right/RotateAnchor
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 956f0954-deae-4de6-a982-d3b390d8e4f8
+    m_ActionName: VRController_right/TranslateAnchor
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0597f0f6-7df7-4a87-8223-74c33eccfb92
+    m_ActionName: VRController_right/TeleportSelect
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fbd02b0d-0b7a-4ffb-8410-11b7918da9b3
+    m_ActionName: VRController_right/TeleportModeActivate
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fdfc60c6-9b3b-4224-b39c-10ccbbe12017
+    m_ActionName: VRController_right/TeleportModeCancel
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51611df4-87ea-4abf-857c-ba26b08f5966
+    m_ActionName: VRController_right/Turn
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7a0c376d-afeb-465a-a571-34aa1d6acbbd
+    m_ActionName: VRController_right/Move
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5644243247378635449, guid: aec3e2bf85c562a4ca244b94d41c1214, type: 3}
+        m_TargetAssemblyTypeName: I_SceneSwitch, Assembly-CSharp
+        m_MethodName: CounterUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3f4a5025-b518-4d5b-bdb7-17cb53ff5c7b
+    m_ActionName: Keyboard/ChangeSceneUp
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5644243247378635449, guid: aec3e2bf85c562a4ca244b94d41c1214, type: 3}
+        m_TargetAssemblyTypeName: I_SceneSwitch, Assembly-CSharp
+        m_MethodName: CounterDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 69bb3cab-6097-4852-893c-006fe3bb521c
+    m_ActionName: Keyboard/ChangeSceneDown[/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: CreateRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 895d40e1-5988-4cfc-ab45-2349ad1b6a34
+    m_ActionName: Keyboard/CreateRoom[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ConnectToServer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: abf8dc80-173b-46b1-afd2-3e49b497c8a1
+    m_ActionName: Keyboard/ConnectToServer[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ChangeSetup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 407d3b1f-2df9-4d67-9c39-31f67c2e57bd
+    m_ActionName: Keyboard/ChangePlayerSetup[/Keyboard/p]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: JoinRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 486f11c0-20d2-4f7b-a285-e0db2f580d08
+    m_ActionName: Keyboard/JoinRoom[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ShowNextRoom
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_ActionId: 12061844-4f38-4739-b5bb-296cd0d0e19e
+    m_ActionName: Keyboard/rightRoom[/Keyboard/numpad6]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6383370334692388508, guid: 60254329d1c3e8e4d86c8d2a91ce46da, type: 3}
+        m_TargetAssemblyTypeName: Li_MainMenuManager, Assembly-CSharp
+        m_MethodName: ShowNextRoom
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 06d287a7-a781-467b-8cc4-fcc0143dd015
+    m_ActionName: Keyboard/leftRoom[/Keyboard/numpad4]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94bd6ec0-52a0-43a0-a5cc-f1a14cabd3d1
+    m_ActionName: Mouse/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 396e9bbf-933d-4a0d-8e6a-4e34882151eb
+    m_ActionName: Mouse/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 360392ef-ac97-4aee-b9dc-c03ca58380a2
+    m_ActionName: Mouse/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fd61c3d-c864-47dc-b3f5-5ff33dc76940
+    m_ActionName: Mouse/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94c81cbb-dc7e-41ef-b5cc-6bf9342fa776
+    m_ActionName: Mouse/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5e317fe1-3d7f-48b3-a0e9-cf9163950007
+    m_ActionName: Mouse/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2dd67cfc-f87d-40ea-a911-8e13b0d0fa58
+    m_ActionName: Mouse/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91efc229-a1e1-41fb-9b47-bd087c56a7f9
+    m_ActionName: Mouse/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70b8b8d4-c7ca-4339-b5fd-df28ee833318
+    m_ActionName: Mouse/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59a80b60-3614-41c7-b0f6-0b99c13015e7
+    m_ActionName: Mouse/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 80605a2b-8721-4aaf-8b7b-ffbd0dd41abd
+    m_ActionName: Keyboard/LeaveRoom[/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: ChangeSetup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 98c8bb37-58ac-4242-afeb-b9f571ae5dca
+    m_ActionName: Keyboard/ChangePlayerSetup_room[/Keyboard/o]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb190697-326f-44e8-b22f-f5de6d895830
+    m_ActionName: Keyboard/SwitchModes[/Keyboard/m]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Keyboard
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2398157175589609557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017c5e3933235514c9520e1dace2a4b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ActionAssets:
+  - {fileID: -944628639613478452, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+--- !u!114 &8274825251796760243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 6469919966955420720, guid: 65dc7523c05c76941a6e06f364a63aa7, type: 3}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &7280691353354031353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_PointAction: {fileID: 6963108049109346606, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_MoveAction: {fileID: -8560643493805561159, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_SubmitAction: {fileID: 6709962251032998866, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_CancelAction: {fileID: 6982491404722761878, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_LeftClickAction: {fileID: 8416594202480393081, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_MiddleClickAction: {fileID: 2600765192641278683, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_RightClickAction: {fileID: 18867098116166857, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_ScrollWheelAction: {fileID: 5319629843690013007, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 8290703257236295504, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -1506368258606938233, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0

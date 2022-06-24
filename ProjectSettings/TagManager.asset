@@ -8,6 +8,8 @@ TagManager:
   - CaveUser
   - Panel
   - Ground
+  - VRBelt
+  - CaveTable
   layers:
   - Default
   - TransparentFX

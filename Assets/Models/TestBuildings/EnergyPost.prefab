@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 8827815067736951416}
   - component: {fileID: 8827815067736951423}
   m_Layer: 0
-  m_Name: EnergyPost (4)
+  m_Name: EnergyPost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 5
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:

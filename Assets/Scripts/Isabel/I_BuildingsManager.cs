@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class I_BuildingsManager : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class I_BuildingsManager : MonoBehaviour
             DontDestroyOnLoad(Instance);
         }
         else Destroy(this.gameObject);
+
+        foreach(GameObject tempObj in GameObject.FindGameObjectsWithTag("VRSocket"))
+        {
+            VRSockets.Add(tempObj);
+        }
+        foreach(GameObject tempObj in GameObject.FindGameObjectsWithTag("CaveSocket"))
+        {
+            CaveSockets.Add(tempObj);
+        }
     }
     #endregion
 
@@ -28,15 +38,40 @@ public class I_BuildingsManager : MonoBehaviour
      public static event Action OnBuilding_placable;
 
     //------------------Variabels------------------
-
+    [TextArea]
+    public String SetupInfo;
+    [SerializeField]private List<GameObject> CaveSockets;
+    [SerializeField]private List<GameObject> VRSockets; 
+    [SerializeField]private List<GameObject> Buildings; 
     [SerializeField]private bool canBePlaced= false;
     [SerializeField]private bool CanBeGiven=false ;
+
+
 
     void Start()
     {
         //Subscribing as a Listener to following events:
         I_CaveTable.OnBuildingGiven += BuildingIsGiven;
         I_VrBelt.OnBuildingPlaced += BuildingIsPlaced;
+
+        // BuildingManager shall assign each socketpair which building will be used
+        if (VRSockets.Count != CaveSockets.Count)
+        {
+            Debug.LogError("Mismatch on socket count between Cave and VR\n Check if Sockets are tagged");
+        }
+
+        for (int i = 0; i < VRSockets.Count; i++)
+        {
+            if(i >= Buildings.Count)
+            {   
+                Debug.LogWarning("There are not enough buildings in the list of the BuildingsManager!");
+                break;
+            }
+            VRSockets[i].GetComponent<XRSocketInteractor>().startingSelectedInteractable = Buildings[i].GetComponent<XRGrabInteractable>();
+            CaveSockets[i].GetComponent<XRSocketInteractor>().startingSelectedInteractable = Buildings[i].GetComponent<XRGrabInteractable>();
+        }
+
+
     }
 
    void Update()
@@ -54,6 +89,13 @@ public class I_BuildingsManager : MonoBehaviour
         }
    }
 
+   public void spawnBuilding()
+   {
+    
+   }
+
+
+#region Events
    private void BuildingIsGiven()
    {
         Debug.Log("Building is Ready for VR use");
@@ -78,4 +120,7 @@ public class I_BuildingsManager : MonoBehaviour
     I_CaveTable.OnBuildingGiven -= BuildingIsGiven;
     I_VrBelt.OnBuildingPlaced -= BuildingIsPlaced;
   }
+  #endregion 
+
 }
+

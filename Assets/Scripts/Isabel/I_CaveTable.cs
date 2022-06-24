@@ -41,9 +41,11 @@ public class I_CaveTable : MonoBehaviour
         buildingEnabled = true;
     }
 
-    public void BuildingWasTouched()
+    public void BuildingWasTouched() //When Building was touched Invoke this funktion
     {
         OnBuildingGiven?.Invoke();
+        buildingEnabled =false;
+        Debug.Log("Building was given to VR user");
     }
 
     void OnDisable()

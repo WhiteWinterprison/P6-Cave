@@ -39,11 +39,14 @@ public class I_VrBelt : MonoBehaviour
     {
         Debug.Log("Buildings Can Be Placed");
         buildEnabled = true;
+        //what building will be enabled ?
     }
 
     public void BuildWasPlaced()
     {
         OnBuildingPlaced?.Invoke();
+        buildEnabled = false;
+        Debug.Log("Building was placed can be given again");
     }
 
     void OnDisable()

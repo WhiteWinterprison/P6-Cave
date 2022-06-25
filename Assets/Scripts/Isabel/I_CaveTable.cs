@@ -16,9 +16,8 @@ public class I_CaveTable : MonoBehaviour
     I_CollisionWithSocket i_socketCollision;
 
     //----------Variables-------------
-    private bool buildingEnabled = true;
-    [HideInInspector]public int BuildingNr;
-
+    //private bool buildingEnabled = true;
+    public IntVariable BuildingNr;
     public bool RunTheFunktion=false;
 
     //---------Code------------------
@@ -51,6 +50,7 @@ public class I_CaveTable : MonoBehaviour
         }
     }
 
+    
     //Which building is in the teleporter ?
     public  void GetBuildingInTeleporter()
     {
@@ -58,21 +58,21 @@ public class I_CaveTable : MonoBehaviour
         Debug.Log(i_socketCollision.BuildingName);
         if(i_socketCollision.BuildingName == "Building1")
         {
-            BuildingNr = 0;
-            Debug.Log("Building Nr:" + BuildingNr);
-            BuildingWasTouched(0);
+            BuildingNr.value = 0;
+            Debug.Log("Building Nr:" + BuildingNr.value);
+            BuildingWasTouched();
         }
         else if(i_socketCollision.BuildingName == "Building2")
         {
-            BuildingNr = 1;
-            Debug.Log("Building Nr:" + BuildingNr);
-            BuildingWasTouched(1);
+            BuildingNr.value = 1;
+            Debug.Log("Building Nr:" + BuildingNr.value);
+            BuildingWasTouched();
         }
         else if(i_socketCollision.BuildingName == "Building3")
         {
-            BuildingNr = 2;
-            Debug.Log("Building Nr:" + BuildingNr);
-            BuildingWasTouched(2);
+            BuildingNr.value = 2;
+            Debug.Log("Building Nr:" + BuildingNr.value);
+            BuildingWasTouched();
         }
         else
         {
@@ -85,13 +85,13 @@ public class I_CaveTable : MonoBehaviour
      private void BuildingCanBeGiven()
     {
         Debug.Log("Building can be used Again");
-        buildingEnabled = true;
+        //buildingEnabled = true;
     }
 
-    public void BuildingWasTouched(int BuildingNr) //When Building was touched Invoke this funktion
+    public void BuildingWasTouched() //When Building was touched Invoke this funktion
     {
         OnBuildingGiven?.Invoke();
-        buildingEnabled =false;
+        //buildingEnabled =false;
         Debug.Log("Building was given to VR user");
     }
 

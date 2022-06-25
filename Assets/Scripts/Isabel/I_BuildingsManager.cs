@@ -22,14 +22,14 @@ public class I_BuildingsManager : MonoBehaviour
     [SerializeField]private List<GameObject> VRSockets; 
     [SerializeField]private List<GameObject> Buildings; 
     [SerializeField] private GameObject Teleporter;
-    [SerializeField]private bool canBePlaced= false;
-    [SerializeField]private bool CanBeGiven=false ;
-    public int BuildingNR;
+    private bool canBePlaced= false;
+    private bool CanBeGiven=false ;
+    public IntVariable BuildingNr;
 
     //---------------Reverences--------------------
 
     public static I_BuildingsManager Instance { set; get; }
-    I_CaveTable i_CaveTable;
+
 
     //--------------Code-----------------------
 
@@ -50,9 +50,6 @@ public class I_BuildingsManager : MonoBehaviour
         {
             CaveSockets.Add(tempObj);
         }
-
-        i_CaveTable = GetComponent<I_CaveTable>();
-        BuildingNR = i_CaveTable.BuildingNr;
     }
 
     void Start()
@@ -109,8 +106,15 @@ public class I_BuildingsManager : MonoBehaviour
    {
         //Get int from I_CaveTable which building was used 
         //use the info to tell what building from List Buildings should be given over 
-       
-        Debug.Log("Building is Ready for VR use");
+        for(int i = 0; i < Buildings.Count; i++)
+        {
+            if(i == BuildingNr.value)
+            {
+
+            Debug.Log("Building is Ready for VR use");
+            }
+
+        }       
         // canBePlaced = true;
         // CanBeGiven = false;
    }

@@ -14,7 +14,7 @@ TagManager:
   - VRSocket
   - Building1
   - Building2
-  - Buildng3
+  - Building3
   layers:
   - Default
   - TransparentFX

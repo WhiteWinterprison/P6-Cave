@@ -18,9 +18,7 @@ public class I_VrBelt : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(Instance);
         }
-        else Destroy(this.gameObject);
-
-        
+        else Destroy(this.gameObject);        
     }
     #endregion
 
@@ -29,7 +27,10 @@ public class I_VrBelt : MonoBehaviour
 
     //----------variables-----------------
     [SerializeField]private List<GameObject> vrSockets; 
-    private bool buildEnabled = false;
+    //private bool buildEnabled = false;
+    public IntVariable BuildingNr;
+
+    //----------Rev---------------------
 
     void Start()
     {
@@ -55,14 +56,14 @@ public class I_VrBelt : MonoBehaviour
     private void BuildingCanBePlaced()
     {
         Debug.Log("Buildings Can Be Placed");
-        buildEnabled = true;
+       // buildEnabled = true;
         //what building will be enabled ?
     }
 
     public void BuildWasPlaced()
     {
         OnBuildingPlaced?.Invoke();
-        buildEnabled = false;
+       // buildEnabled = false;
         Debug.Log("Building was placed can be given again");
     }
 

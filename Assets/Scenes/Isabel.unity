@@ -700,6 +700,7 @@ MonoBehaviour:
   Teleporter: {fileID: 1187677621}
   canBePlaced: 0
   CanBeGiven: 0
+  BuildingNr: {fileID: 11400000, guid: d4e6159af720e7b418b8ca31b92d23ab, type: 2}
 --- !u!4 &823697881
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,11 +1316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1605888972900182854, guid: 1e84816d116be1b4fb4fa94e76f3a412, type: 3}
       propertyPath: m_TagString
-      value: Buildng3
+      value: Building3
       objectReference: {fileID: 0}
     - target: {fileID: 1605888973857595382, guid: 1e84816d116be1b4fb4fa94e76f3a412, type: 3}
       propertyPath: m_TagString
-      value: Buildng3
+      value: Building3
       objectReference: {fileID: 0}
     - target: {fileID: 2845649341903203207, guid: 1e84816d116be1b4fb4fa94e76f3a412, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
@@ -1573,6 +1574,7 @@ MonoBehaviour:
   - {fileID: 1118288973}
   - {fileID: 244268109}
   - {fileID: 202175077}
+  BuildingNr: {fileID: 11400000, guid: d4e6159af720e7b418b8ca31b92d23ab, type: 2}
 --- !u!1 &1947563478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8172c5e666112b42a02354c2164e4f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingNr: 0
+  BuildingNr: {fileID: 11400000, guid: d4e6159af720e7b418b8ca31b92d23ab, type: 2}
   RunTheFunktion: 0
 --- !u!4 &4581463318470548443 stripped
 Transform:

@@ -85,7 +85,19 @@ MonoBehaviour:
     m_ActionId: 9b702e72-5863-4ac2-95b9-63cbf65f4488
     m_ActionName: VRController_left/HapticDevice
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f73f6e42-8d60-4a40-9c91-c41f457610da
     m_ActionName: VRController_left/Select
   - m_PersistentCalls:

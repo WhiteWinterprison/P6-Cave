@@ -18,8 +18,6 @@ public class I_CaveTable : MonoBehaviour
     //----------Variables-------------
     //private bool buildingEnabled = true;
     public IntVariable BuildingNr;
-    public bool RunTheFunktion=false;
-
     //---------Code------------------
     private void Awake()
     {
@@ -40,16 +38,6 @@ public class I_CaveTable : MonoBehaviour
         //Subsicrbe to BuildingManager event
         I_BuildingsManager.OnBuilding_givable += BuildingCanBeGiven;
     }
-
-    void Update()
-    {
-        //for easy debugging ---------Delte LAter!!!----------
-        if(RunTheFunktion == true)
-        {
-            GetBuildingInTeleporter();
-        }
-    }
-
     
     //Which building is in the teleporter ?
     public  void GetBuildingInTeleporter()

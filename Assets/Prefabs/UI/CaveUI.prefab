@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 865961999}
   - component: {fileID: 865961998}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveLeave_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 2045206017}
   - component: {fileID: 2045206016}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveMode_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 2601365817047095569}
   - component: {fileID: 6559653113114709230}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveSetup_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2092,7 +2092,7 @@ GameObject:
   - component: {fileID: 4724253810169334551}
   - component: {fileID: 2529189272972356761}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveSetup_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3037,6 +3037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6887022631674417363}
+  - component: {fileID: 7072971090287475266}
   m_Layer: 0
   m_Name: CaveUI
   m_TagString: Panel
@@ -3062,6 +3063,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7072971090287475266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887022631674417372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6887022631679714913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,7 +3308,7 @@ GameObject:
   - component: {fileID: 6887022631851877662}
   - component: {fileID: 6887022631851877663}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveMode_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3508,7 +3531,7 @@ GameObject:
   - component: {fileID: 6887022632041353935}
   - component: {fileID: 6887022632041353928}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveLeave_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

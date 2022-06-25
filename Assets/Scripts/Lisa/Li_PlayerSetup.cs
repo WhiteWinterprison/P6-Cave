@@ -27,9 +27,9 @@ public class Li_PlayerSetup : MonoBehaviour
 
     //variables for the player Setup
 
-    private int playerSetup;
+    Li_SetupStates currentState;
 
-    public UnityEvent onSetupChanged;
+    private int playerSetup;
 
     //the variables and refs for spawning the player
 
@@ -46,6 +46,8 @@ public class Li_PlayerSetup : MonoBehaviour
     private GameObject myPrefab;
 
     [Header("The Variables for calculating the Positions for the Prefabs to spawn in")]
+    [SerializeField]
+    private Transform defaultPoint;
     [SerializeField]
     private Transform cavePoint;
     [SerializeField]
@@ -75,12 +77,23 @@ public class Li_PlayerSetup : MonoBehaviour
         {
             playerSetup = 1; //and its the default/desktop setup
         }
+    }
 
-        //register the event
-        if (onSetupChanged == null)
+    private void Start()
+    {
+        switch (playerSetup)
         {
-            onSetupChanged = new UnityEvent();
+            case 1: currentState = new DefaultState(defaultCamera, caveSetup, vrSetup, defaultPoint, cavePoint, vrPoint); break; //set the first state as the default setup
+            case 2: currentState = new CaveState(defaultCamera, caveSetup, vrSetup, defaultPoint, cavePoint, vrPoint); break; //set the first state as the cave setup
+            case 3: currentState = new VrState(defaultCamera, caveSetup, vrSetup, defaultPoint, cavePoint, vrPoint); break; //set the first state as the vr setup
+            default: Debug.Log("Wrong playerSetup"); break;
         }
+    }
+
+    private void Update()
+    {
+        //call the current state
+        currentState = currentState.Process();
     }
 
     #endregion
@@ -103,8 +116,6 @@ public class Li_PlayerSetup : MonoBehaviour
             case 3: playerSetup = 1; break; //switch to the VR setup
             default: Debug.Log("Wrong playerSetup loaded"); break;
         }
-
-        onSetupChanged.Invoke();
     }
 
     //function provided for the event to be able to destroy
@@ -127,44 +138,27 @@ public class Li_PlayerSetup : MonoBehaviour
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
             }
         }
-    }
 
-    //function to provide the correct variables out of the three choices
-    public void PlayerSetupVariables()
-    {
-        switch (playerSetup)
-        {
-            case 1: myPrefab = defaultCamera; Debug.Log("Setup = default"); break; //switch to the default setup
-            case 2: myPrefab = caveSetup; Debug.Log("Setup = CAVE"); break; //switch to the CAVE setup
-            case 3: myPrefab = vrSetup; Debug.Log("Setup = VR"); break; //switch to the VR setup
-            default: Debug.Log("playerSetup set to wrong value"); break;
-        }
+        Debug.Log("Player Destroyed");
     }
 
     //function provided for the event to be able to instantiate
     public void SpawnMyPlayer()
     {
-        Vector3 spawnPos = new Vector3(0, 1.7f, 0);
+        //Vector3 spawnPos = new Vector3(0, 1.7f, 0); ---> should not be need anymore if the state machine is doing its job
 
         if (PhotonNetwork.InRoom)
         {
-            //calculate the correct spawn position
-            switch (playerSetup)
-            {
-                case 1: break; //default is spawning in the middle
-                case 2: spawnPos = cavePoint.position; break; //CAVE is spawning inside of the CAVE
-                case 3: spawnPos = vrPoint.position; break; //VR is spawning opposite of them
-                default: Debug.Log("playerSetup wrong value so no spawn position"); break;
-            }
-
             //Instantiates by NAME, be carefull with spelling
-            PhotonNetwork.Instantiate(myPrefab.name, spawnPos, Quaternion.identity);
+            PhotonNetwork.Instantiate(currentState.GetPrefab().name, currentState.GetSpawn().position, Quaternion.identity);
         }
         else
         {
             //Instantiates by NAME, be carefull with spelling
-            Instantiate(myPrefab, spawnPos, Quaternion.identity);
+            Instantiate(currentState.GetPrefab(), defaultPoint.position, Quaternion.identity);
         }
+
+        Debug.Log(currentState.GetPrefab().name + " spawned");
     }
 
     #endregion

@@ -45,7 +45,7 @@ public class Li_SettingUpCameras : MonoBehaviour
                 {
                     foreach (Canvas canvas in obj.GetComponentsInChildren<Canvas>())
                     {
-                        canvas.worldCamera = this.GetComponent<Camera>();
+                        canvas.worldCamera = this.GetComponentInChildren<Camera>();
                     }
                 }
             }

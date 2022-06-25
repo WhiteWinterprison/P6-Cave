@@ -30,7 +30,7 @@ public class Li_RoomUIManager : MonoBehaviour
     [SerializeField]
     private GameObject vrUI;
 
-    [Header("The Mode Buttons")]
+    [Header("The Mode Changer Buttons inside of the different UI Prefabs")]
     [SerializeField]
     private TextMeshProUGUI defaultModeTitle;
     [SerializeField]
@@ -46,20 +46,24 @@ public class Li_RoomUIManager : MonoBehaviour
 
     private void Awake()
     {
+        //just to set the myTitle ref
+        myTitle = defaultModeTitle;
+
         //----------------------------------------//
         //create the starting state of the room UI//
         //----------------------------------------//
 
-        //set the UI objects to the starting state
-        defaultUI.SetActive(false);
-        caveUI.SetActive(false);
-        vrUI.SetActive(false);
+        switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
+        {
+            case 1: defaultUI.SetActive(true); caveUI.SetActive(false); vrUI.SetActive(false); myTitle = defaultModeTitle; break;
+            case 2: caveUI.SetActive(true); defaultUI.SetActive(false); vrUI.SetActive(false); myTitle = caveModeTitle; break;
+            case 3: vrUI.SetActive(true); caveUI.SetActive(false); defaultUI.SetActive(false); myTitle = vrModeTitle; break;
+            default: break;
+        }
 
-        //listen to the event
-        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().onSetupChanged.AddListener(UpdateUIPlayerSetup);
-        Li_RoomManager.Instance.GetComponent<Li_Modes>().onModeChanged.AddListener(UpdateUIPlayerSetup);
+        UpdateUIMode();
     }
-
+    
     #endregion
 
     #region Provided Functions
@@ -78,8 +82,19 @@ public class Li_RoomUIManager : MonoBehaviour
         Li_NetworkManager.Instance.Interact_BackToMenu();
     }
 
-    public void UpdateUIPlayerSetup()
+    public void UpdateUIMode()
     {
+        //update the mode text inside of the mode button
+        myTitle.text = Li_RoomManager.Instance.GetComponent<Li_Modes>().GetCurrentState().GetModeText();
+        Debug.Log("Updated Mode Text");
+    }
+
+    //function provided for the Switch Buttons
+    public void ChangeSetup()
+    {
+        //call the function from the Player Setup to change the player setup
+        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().ChangePlayerSetup();
+
         //set the UI objects according to the player setup
         switch (Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().GetPlayerSetup())
         {
@@ -89,15 +104,7 @@ public class Li_RoomUIManager : MonoBehaviour
             default: break;
         }
 
-        //update the mode text inside of the mode button
-        myTitle.text = Li_RoomManager.Instance.GetComponent<Li_Modes>().GetCurrentState().GetModeText();
-    }
-
-    //function provided for the Switch Buttons
-    public void ChangeSetup()
-    {
-        //call the function from the Player Setup to change the player setup
-        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().ChangePlayerSetup();
+        UpdateUIMode();
     }
 
     #endregion

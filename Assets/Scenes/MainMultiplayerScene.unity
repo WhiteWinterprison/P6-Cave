@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1378675021}
+    - target: {fileID: 5692296298585524778, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6075105911246985899, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -618,6 +622,10 @@ PrefabInstance:
     - target: {fileID: 6075105911420005563, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6075105911420005565, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6075105911420005567, guid: 893f16e47774fce4fa2e2faa4f7f6b8f, type: 3}
       propertyPath: m_Name
@@ -1669,6 +1677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaveUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6887022631674417372, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6887022632419731757, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1696,6 +1708,10 @@ PrefabInstance:
     - target: {fileID: 6887022632419731757, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7072971090287475266, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743a3d2cc4fef44dbf07a785879a9b7, type: 3}
@@ -2156,9 +2172,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 214503540593523448, guid: 3b16958a20a6e5644a1dbeb4b192a33e, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1012582228736806956, guid: 3b16958a20a6e5644a1dbeb4b192a33e, type: 3}
       propertyPath: m_Name
       value: VRUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012582228736806956, guid: 3b16958a20a6e5644a1dbeb4b192a33e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1012582228736806957, guid: 3b16958a20a6e5644a1dbeb4b192a33e, type: 3}
       propertyPath: m_RootOrder
@@ -2313,22 +2337,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7732067170453561138, guid: 89f8f1739a33f6c4a8f96305d89580c0, type: 3}
-      propertyPath: range
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7732067170453561138, guid: 89f8f1739a33f6c4a8f96305d89580c0, type: 3}
-      propertyPath: vrName
-      value: VRPlayer-Xr-Origin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7732067170453561138, guid: 89f8f1739a33f6c4a8f96305d89580c0, type: 3}
-      propertyPath: caveName
-      value: CavePlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7732067170453561138, guid: 89f8f1739a33f6c4a8f96305d89580c0, type: 3}
-      propertyPath: defaultName
-      value: PcPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 7732067170453561140, guid: 89f8f1739a33f6c4a8f96305d89580c0, type: 3}
       propertyPath: m_Name
       value: RoomManager

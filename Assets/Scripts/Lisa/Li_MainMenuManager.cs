@@ -89,8 +89,6 @@ public class Li_MainMenuManager : MonoBehaviour
             case 3: switchButton.GetComponentInChildren<TextMeshProUGUI>().text = vr; switchInt = 3; break;
             default: break;
         }
-
-        Li_NetworkManager.Instance.GetComponent<Li_PlayerSetup>().onSetupChanged.Invoke();
     }
 
     #endregion

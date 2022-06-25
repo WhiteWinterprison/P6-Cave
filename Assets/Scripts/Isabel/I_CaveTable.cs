@@ -59,19 +59,19 @@ public class I_CaveTable : MonoBehaviour
         if(i_socketCollision.BuildingName == "Building1")
         {
             BuildingNr.value = 0;
-            Debug.Log("Building Nr:" + BuildingNr.value);
+            //Debug.Log("Building Nr:" + BuildingNr.value);
             BuildingWasTouched();
         }
         else if(i_socketCollision.BuildingName == "Building2")
         {
             BuildingNr.value = 1;
-            Debug.Log("Building Nr:" + BuildingNr.value);
+            //Debug.Log("Building Nr:" + BuildingNr.value);
             BuildingWasTouched();
         }
         else if(i_socketCollision.BuildingName == "Building3")
         {
             BuildingNr.value = 2;
-            Debug.Log("Building Nr:" + BuildingNr.value);
+            //Debug.Log("Building Nr:" + BuildingNr.value);
             BuildingWasTouched();
         }
         else
@@ -84,7 +84,7 @@ public class I_CaveTable : MonoBehaviour
     #region Events
      private void BuildingCanBeGiven()
     {
-        Debug.Log("Building can be used Again");
+        //Debug.Log("Building can be used Again");
         //buildingEnabled = true;
     }
 
@@ -92,7 +92,7 @@ public class I_CaveTable : MonoBehaviour
     {
         OnBuildingGiven?.Invoke();
         //buildingEnabled =false;
-        Debug.Log("Building was given to VR user");
+        //Debug.Log("Building was given to VR user");
     }
 
     void OnDisable()

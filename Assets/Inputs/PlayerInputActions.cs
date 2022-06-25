@@ -1080,7 +1080,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             ""id"": ""ed7d7f3e-0dc0-4b2f-9d81-99e022cdec1d"",
             ""actions"": [
                 {
-                    ""name"": ""ChangeSceneUp"",
+                    ""name"": ""BuildingWasPlacedTESTFUNKTION"",
                     ""type"": ""Button"",
                     ""id"": ""3f4a5025-b518-4d5b-bdb7-17cb53ff5c7b"",
                     ""expectedControlType"": ""Button"",
@@ -1089,7 +1089,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ChangeSceneDown"",
+                    ""name"": ""EnterPressed"",
                     ""type"": ""Button"",
                     ""id"": ""69bb3cab-6097-4852-893c-006fe3bb521c"",
                     ""expectedControlType"": ""Button"",
@@ -1183,22 +1183,22 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6eac8cad-fcdb-4fce-a196-27bd76f4cfc7"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/backspace"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeSceneUp"",
+                    ""action"": ""BuildingWasPlacedTESTFUNKTION"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""598feeaf-a4fd-4c6b-8aef-92d82810d89c"",
-                    ""path"": ""<Keyboard>/backspace"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ChangeSceneDown"",
+                    ""action"": ""EnterPressed"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1866,8 +1866,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_VRController_right_Move = m_VRController_right.FindAction("Move", throwIfNotFound: true);
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
-        m_Keyboard_ChangeSceneUp = m_Keyboard.FindAction("ChangeSceneUp", throwIfNotFound: true);
-        m_Keyboard_ChangeSceneDown = m_Keyboard.FindAction("ChangeSceneDown", throwIfNotFound: true);
+        m_Keyboard_BuildingWasPlacedTESTFUNKTION = m_Keyboard.FindAction("BuildingWasPlacedTESTFUNKTION", throwIfNotFound: true);
+        m_Keyboard_EnterPressed = m_Keyboard.FindAction("EnterPressed", throwIfNotFound: true);
         m_Keyboard_CreateRoom = m_Keyboard.FindAction("CreateRoom", throwIfNotFound: true);
         m_Keyboard_ConnectToServer = m_Keyboard.FindAction("ConnectToServer", throwIfNotFound: true);
         m_Keyboard_ChangePlayerSetup_entrance = m_Keyboard.FindAction("ChangePlayerSetup_entrance", throwIfNotFound: true);
@@ -2311,8 +2311,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     // Keyboard
     private readonly InputActionMap m_Keyboard;
     private IKeyboardActions m_KeyboardActionsCallbackInterface;
-    private readonly InputAction m_Keyboard_ChangeSceneUp;
-    private readonly InputAction m_Keyboard_ChangeSceneDown;
+    private readonly InputAction m_Keyboard_BuildingWasPlacedTESTFUNKTION;
+    private readonly InputAction m_Keyboard_EnterPressed;
     private readonly InputAction m_Keyboard_CreateRoom;
     private readonly InputAction m_Keyboard_ConnectToServer;
     private readonly InputAction m_Keyboard_ChangePlayerSetup_entrance;
@@ -2326,8 +2326,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         private @PlayerInputActions m_Wrapper;
         public KeyboardActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ChangeSceneUp => m_Wrapper.m_Keyboard_ChangeSceneUp;
-        public InputAction @ChangeSceneDown => m_Wrapper.m_Keyboard_ChangeSceneDown;
+        public InputAction @BuildingWasPlacedTESTFUNKTION => m_Wrapper.m_Keyboard_BuildingWasPlacedTESTFUNKTION;
+        public InputAction @EnterPressed => m_Wrapper.m_Keyboard_EnterPressed;
         public InputAction @CreateRoom => m_Wrapper.m_Keyboard_CreateRoom;
         public InputAction @ConnectToServer => m_Wrapper.m_Keyboard_ConnectToServer;
         public InputAction @ChangePlayerSetup_entrance => m_Wrapper.m_Keyboard_ChangePlayerSetup_entrance;
@@ -2346,12 +2346,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_KeyboardActionsCallbackInterface != null)
             {
-                @ChangeSceneUp.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneUp;
-                @ChangeSceneUp.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneUp;
-                @ChangeSceneUp.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneUp;
-                @ChangeSceneDown.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneDown;
-                @ChangeSceneDown.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneDown;
-                @ChangeSceneDown.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnChangeSceneDown;
+                @BuildingWasPlacedTESTFUNKTION.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnBuildingWasPlacedTESTFUNKTION;
+                @BuildingWasPlacedTESTFUNKTION.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnBuildingWasPlacedTESTFUNKTION;
+                @BuildingWasPlacedTESTFUNKTION.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnBuildingWasPlacedTESTFUNKTION;
+                @EnterPressed.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnEnterPressed;
+                @EnterPressed.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnEnterPressed;
+                @EnterPressed.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnEnterPressed;
                 @CreateRoom.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnCreateRoom;
                 @CreateRoom.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnCreateRoom;
                 @CreateRoom.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnCreateRoom;
@@ -2383,12 +2383,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
             m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ChangeSceneUp.started += instance.OnChangeSceneUp;
-                @ChangeSceneUp.performed += instance.OnChangeSceneUp;
-                @ChangeSceneUp.canceled += instance.OnChangeSceneUp;
-                @ChangeSceneDown.started += instance.OnChangeSceneDown;
-                @ChangeSceneDown.performed += instance.OnChangeSceneDown;
-                @ChangeSceneDown.canceled += instance.OnChangeSceneDown;
+                @BuildingWasPlacedTESTFUNKTION.started += instance.OnBuildingWasPlacedTESTFUNKTION;
+                @BuildingWasPlacedTESTFUNKTION.performed += instance.OnBuildingWasPlacedTESTFUNKTION;
+                @BuildingWasPlacedTESTFUNKTION.canceled += instance.OnBuildingWasPlacedTESTFUNKTION;
+                @EnterPressed.started += instance.OnEnterPressed;
+                @EnterPressed.performed += instance.OnEnterPressed;
+                @EnterPressed.canceled += instance.OnEnterPressed;
                 @CreateRoom.started += instance.OnCreateRoom;
                 @CreateRoom.performed += instance.OnCreateRoom;
                 @CreateRoom.canceled += instance.OnCreateRoom;
@@ -2572,8 +2572,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     }
     public interface IKeyboardActions
     {
-        void OnChangeSceneUp(InputAction.CallbackContext context);
-        void OnChangeSceneDown(InputAction.CallbackContext context);
+        void OnBuildingWasPlacedTESTFUNKTION(InputAction.CallbackContext context);
+        void OnEnterPressed(InputAction.CallbackContext context);
         void OnCreateRoom(InputAction.CallbackContext context);
         void OnConnectToServer(InputAction.CallbackContext context);
         void OnChangePlayerSetup_entrance(InputAction.CallbackContext context);

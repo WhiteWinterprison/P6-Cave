@@ -20,6 +20,8 @@ public class I_VrBelt : MonoBehaviour
     [SerializeField]private List<GameObject> vrSockets; 
     //private bool buildEnabled = false;
     public IntVariable BuildingNr;
+    private GameObject BuildingToSpawn;
+    private bool IsAllowedToSapwn = true;
 
     //----------Rev---------------------
     
@@ -57,35 +59,36 @@ public class I_VrBelt : MonoBehaviour
 
         vrSockets[i].GetComponent<Transform>();
 
-        Quaternion rotation = vrSockets[i].GetComponent<Transform>().rotation;
-        Vector3 position = vrSockets[i].GetComponent<Transform>().position;
+        Quaternion B_rotation = vrSockets[i].GetComponent<Transform>().rotation;
+        Vector3 B_position = vrSockets[i].GetComponent<Transform>().position;
 
-        //Insantiate the right obj
-        //fix
-        //Instantiate(BuildingToInstantiate)
+        //Get the right obj
         if(I_BuildingsManager.Instance!= null)
         {
-            I_BuildingsManager.Instance.GetBuilding();
+            BuildingToSpawn =I_BuildingsManager.Instance.GetBuilding();
+            //Debug.Log("VR Belt Holds the model"+BuildingToSpawn);
         }
+
+        GameObject BuildingClone = Instantiate(BuildingToSpawn, B_position, B_rotation);
+        IsAllowedToSapwn = false;
+
     }
 
     #region Events 
     private void BuildingCanBePlaced()
     {
-        InstantateObjOnSocket();
-        if(1 ==1)
+        if(IsAllowedToSapwn == true)
         {
-            Debug.Log("Building waiting to be placed");
+            InstantateObjOnSocket(); //get called to fotern right now
+            //Debug.Log("Building waiting to be placed");
         }
-       // buildEnabled = true;
-        //what building will be enabled ?
     }
 
     public void BuildWasPlaced()
     {
         OnBuildingPlaced?.Invoke();
-       //buildEnabled = false;
-        Debug.Log("Building was placed can be given again");
+        IsAllowedToSapwn = true;
+        //Debug.Log("Building was placed can be given again");
     }
 
     void OnDisable()

@@ -26,11 +26,11 @@ public class I_BuildingsManager : MonoBehaviour
     private bool CanBeGiven=false ;
     public IntVariable BuildingNr;
 
-    private GameObject BuildingToInstantiate {get; set;}
+    private GameObject BuildingToInstantiate{get; set;}
 
 
     //---------------Reverences--------------------
-
+    //singelton
     public static I_BuildingsManager Instance { set; get; }
 
 
@@ -124,6 +124,11 @@ public class I_BuildingsManager : MonoBehaviour
 
         }       
    }
+
+   public GameObject GetBuilding()
+    {
+      return BuildingToInstantiate;
+    }
 
 
    private void BuildingIsPlaced()

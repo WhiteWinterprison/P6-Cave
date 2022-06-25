@@ -22,7 +22,7 @@ public class I_VrBelt : MonoBehaviour
     public IntVariable BuildingNr;
 
     //----------Rev---------------------
-
+    
 
 //---------------------------------------------------------------------------------
 //-------get the info from BuildingsManager what building needs to be placed-------
@@ -52,7 +52,6 @@ public class I_VrBelt : MonoBehaviour
     //Instatiate obj on right Socket
     private void InstantateObjOnSocket()
     {
-        
         //dependign on what int we have get differnt transform to Instantiate the obj
         int i = BuildingNr.value;
 
@@ -62,13 +61,22 @@ public class I_VrBelt : MonoBehaviour
         Vector3 position = vrSockets[i].GetComponent<Transform>().position;
 
         //Insantiate the right obj
+        //fix
+        //Instantiate(BuildingToInstantiate)
+        if(I_BuildingsManager.Instance!= null)
+        {
+            I_BuildingsManager.Instance.GetBuilding();
+        }
     }
 
     #region Events 
     private void BuildingCanBePlaced()
     {
-        Debug.Log("Buildings Can Be Placed");
         InstantateObjOnSocket();
+        if(1 ==1)
+        {
+            Debug.Log("Building waiting to be placed");
+        }
        // buildEnabled = true;
         //what building will be enabled ?
     }
@@ -76,7 +84,7 @@ public class I_VrBelt : MonoBehaviour
     public void BuildWasPlaced()
     {
         OnBuildingPlaced?.Invoke();
-       // buildEnabled = false;
+       //buildEnabled = false;
         Debug.Log("Building was placed can be given again");
     }
 

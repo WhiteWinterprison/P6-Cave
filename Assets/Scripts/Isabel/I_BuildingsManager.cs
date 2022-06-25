@@ -10,8 +10,28 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class I_BuildingsManager : MonoBehaviour
 {
     //Singelton -> We only want 1 Manager
-    #region  Singelton
-     public static I_BuildingsManager Instance { set; get; }
+
+    //------------------Events------------------
+     public static event Action OnBuilding_givable;
+     public static event Action OnBuilding_placable;
+
+    //------------------Variabels------------------
+    [TextArea]
+    public String SetupInfo;
+    [SerializeField]private List<GameObject> CaveSockets;
+    [SerializeField]private List<GameObject> VRSockets; 
+    [SerializeField]private List<GameObject> Buildings; 
+    [SerializeField] private GameObject Teleporter;
+    [SerializeField]private bool canBePlaced= false;
+    [SerializeField]private bool CanBeGiven=false ;
+    public int BuildingNR;
+
+    //---------------Reverences--------------------
+
+    public static I_BuildingsManager Instance { set; get; }
+    I_CaveTable i_CaveTable;
+
+    //--------------Code-----------------------
 
     private void Awake()
     {
@@ -30,23 +50,10 @@ public class I_BuildingsManager : MonoBehaviour
         {
             CaveSockets.Add(tempObj);
         }
+
+        i_CaveTable = GetComponent<I_CaveTable>();
+        BuildingNR = i_CaveTable.BuildingNr;
     }
-    #endregion
-
-    //------------------Events------------------
-     public static event Action OnBuilding_givable;
-     public static event Action OnBuilding_placable;
-
-    //------------------Variabels------------------
-    [TextArea]
-    public String SetupInfo;
-    [SerializeField]private List<GameObject> CaveSockets;
-    [SerializeField]private List<GameObject> VRSockets; 
-    [SerializeField]private List<GameObject> Buildings; 
-    [SerializeField]private bool canBePlaced= false;
-    [SerializeField]private bool CanBeGiven=false ;
-
-
 
     void Start()
     {
@@ -72,6 +79,7 @@ public class I_BuildingsManager : MonoBehaviour
         }
 
 
+
     }
 
    void Update()
@@ -90,17 +98,21 @@ public class I_BuildingsManager : MonoBehaviour
    }
 
    public void spawnBuilding()
-   {
-    
+   {    
+        string interactable = Teleporter.GetComponent<XRSocketInteractor>().attachTransform.ToString();
+        Debug.Log(interactable);
    }
 
 
 #region Events
    private void BuildingIsGiven()
    {
+        //Get int from I_CaveTable which building was used 
+        //use the info to tell what building from List Buildings should be given over 
+       
         Debug.Log("Building is Ready for VR use");
-        canBePlaced = true;
-        CanBeGiven = false;
+        // canBePlaced = true;
+        // CanBeGiven = false;
    }
 
 

@@ -9,7 +9,7 @@ public class I_VrBelt : MonoBehaviour
 {
     //Singelton -> We only want 1 Manager
     #region  Singelton
-     public static I_VrBelt Instance { set; get; }
+    [SerializeField] public static I_VrBelt Instance { set; get; }
 
     private void Awake()
     {
@@ -19,6 +19,8 @@ public class I_VrBelt : MonoBehaviour
             DontDestroyOnLoad(Instance);
         }
         else Destroy(this.gameObject);
+
+        
     }
     #endregion
 
@@ -26,15 +28,30 @@ public class I_VrBelt : MonoBehaviour
     public static event Action OnBuildingPlaced;
 
     //----------variables-----------------
+    [SerializeField]private List<GameObject> vrSockets; 
     private bool buildEnabled = false;
 
     void Start()
     {
-        
+        //Subscribe to BuildingManager event
         I_BuildingsManager.OnBuilding_placable += BuildingCanBePlaced;
     }
 
+    //Instatiate obj on right Socket
+    private void InstantateObjOnSocket(int i)
+    {
+        //dependign on what int we have get differnt transform to Instantiate the obj
+        vrSockets[i].GetComponent<Transform>();
 
+        Quaternion rotation = vrSockets[i].GetComponent<Transform>().rotation;
+        Vector3 position = vrSockets[i].GetComponent<Transform>().position;
+
+        //Insantiate the right obj
+        
+        
+    }
+
+    #region Events 
     private void BuildingCanBePlaced()
     {
         Debug.Log("Buildings Can Be Placed");
@@ -53,4 +70,6 @@ public class I_VrBelt : MonoBehaviour
     {
         I_BuildingsManager.OnBuilding_placable -= BuildingCanBePlaced;
     }
+
+    #endregion
 }

@@ -12,6 +12,9 @@ TagManager:
   - CaveTable
   - CaveSocket
   - VRSocket
+  - Building1
+  - Building2
+  - Buildng3
   layers:
   - Default
   - TransparentFX

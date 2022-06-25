@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5530a9b3ec4914c83049d76fe67b20, type: 3}
   m_Name: BuildingsNr
   m_EditorClassIdentifier: 
-  value: 3
+  value: 1

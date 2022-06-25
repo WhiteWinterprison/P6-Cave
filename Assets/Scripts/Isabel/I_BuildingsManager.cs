@@ -26,6 +26,9 @@ public class I_BuildingsManager : MonoBehaviour
     private bool CanBeGiven=false ;
     public IntVariable BuildingNr;
 
+    private GameObject BuildingToInstantiate {get; set;}
+
+
     //---------------Reverences--------------------
 
     public static I_BuildingsManager Instance { set; get; }
@@ -110,13 +113,16 @@ public class I_BuildingsManager : MonoBehaviour
         {
             if(i == BuildingNr.value)
             {
-
-            Debug.Log("Building is Ready for VR use");
+                //set BuildingToInstantiate to the right buildign nr  
+                BuildingToInstantiate = Buildings[i]; 
+                Debug.Log("Building"+ BuildingNr.value +" is Ready for VR use");
+                Debug.LogWarning("Manager Chosen Building" + Buildings[i]+ "for Vr user");
+                
+                canBePlaced = true;
+                CanBeGiven = false;
             }
 
         }       
-        // canBePlaced = true;
-        // CanBeGiven = false;
    }
 
 

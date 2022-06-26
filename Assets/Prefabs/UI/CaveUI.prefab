@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 865961999}
   - component: {fileID: 865961998}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveLeave_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,8 +571,9 @@ GameObject:
   - component: {fileID: 1379575760}
   - component: {fileID: 1379575759}
   - component: {fileID: 1379575758}
+  - component: {fileID: 4489136909483972618}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mode_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +681,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1379575759}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &4489136909483972618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379575756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 820, y: 220, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1410559980
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +932,7 @@ GameObject:
   - component: {fileID: 1738272547}
   - component: {fileID: 1738272546}
   - component: {fileID: 1738272545}
+  - component: {fileID: 4841827067670807844}
   m_Layer: 5
   m_Name: LeaveRoom_Button
   m_TagString: Untagged
@@ -1015,7 +1042,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738272546}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &4841827067670807844
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738272543}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 820, y: 220, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1850876323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1447,7 @@ GameObject:
   - component: {fileID: 2045206017}
   - component: {fileID: 2045206016}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveMode_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,8 +1661,9 @@ GameObject:
   - component: {fileID: 586132513685669484}
   - component: {fileID: 6187986567177439515}
   - component: {fileID: 4745614291273222332}
+  - component: {fileID: 2041596511265460038}
   m_Layer: 5
-  m_Name: Switch_Button
+  m_Name: Setup_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1719,7 +1772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
         m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
         m_MethodName: ChangeSetup
         m_Mode: 1
@@ -1731,6 +1784,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &2041596511265460038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045063217133758084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 95, y: 95, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3190954905285923031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1809,7 @@ GameObject:
   - component: {fileID: 2601365817047095569}
   - component: {fileID: 6559653113114709230}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveSetup_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1878,8 +1944,9 @@ GameObject:
   - component: {fileID: 7473503600836346061}
   - component: {fileID: 2573587319084514737}
   - component: {fileID: 6822155244882111356}
+  - component: {fileID: 219891967262068179}
   m_Layer: 5
-  m_Name: Switch_Button
+  m_Name: Setup_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +2055,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
         m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
         m_MethodName: ChangeSetup
         m_Mode: 1
@@ -2000,6 +2067,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &219891967262068179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950469498627732722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 95, y: 95, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6857078653661238293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2012,7 +2092,7 @@ GameObject:
   - component: {fileID: 4724253810169334551}
   - component: {fileID: 2529189272972356761}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveSetup_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2594,6 +2674,7 @@ GameObject:
   - component: {fileID: 6887022631313268959}
   - component: {fileID: 6887022631313268952}
   - component: {fileID: 6887022631313268953}
+  - component: {fileID: 6682834024738799730}
   m_Layer: 5
   m_Name: LeaveRoom_Button
   m_TagString: Untagged
@@ -2703,7 +2784,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6887022631313268952}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: LeaveRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &6682834024738799730
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887022631313268955}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 820, y: 220, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6887022631432581625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2931,6 +3037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6887022631674417363}
+  - component: {fileID: 7072971090287475266}
   m_Layer: 0
   m_Name: CaveUI
   m_TagString: Panel
@@ -2956,6 +3063,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7072971090287475266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887022631674417372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6887022631679714913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3179,7 +3308,7 @@ GameObject:
   - component: {fileID: 6887022631851877662}
   - component: {fileID: 6887022631851877663}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveMode_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,7 +3531,7 @@ GameObject:
   - component: {fileID: 6887022632041353935}
   - component: {fileID: 6887022632041353928}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CaveLeave_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3959,8 +4088,9 @@ GameObject:
   - component: {fileID: 6887022632419731747}
   - component: {fileID: 6887022632419731756}
   - component: {fileID: 6887022632419731757}
+  - component: {fileID: 8646585192934381135}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Mode_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4068,7 +4198,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6887022632419731756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &8646585192934381135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6887022632419731759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 820, y: 220, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6887022632441123111
 GameObject:
   m_ObjectHideFlags: 0

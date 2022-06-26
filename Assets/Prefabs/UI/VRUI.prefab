@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3988126891957063701}
   - component: {fileID: 4679427849419189983}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: VRSetup_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,13 +783,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1012582228736806957}
+  - component: {fileID: 214503540593523448}
   m_Layer: 0
   m_Name: VRUI
   m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1012582228736806957
 Transform:
   m_ObjectHideFlags: 0
@@ -810,6 +811,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &214503540593523448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012582228736806956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1012582228747890665
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +980,7 @@ GameObject:
   - component: {fileID: 1012582228807642955}
   - component: {fileID: 1012582228807642954}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: VRLeave_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2546,7 +2569,7 @@ GameObject:
   - component: {fileID: 1012582229389884221}
   - component: {fileID: 1012582229389884220}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: VRMode_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4513,6 +4536,7 @@ GameObject:
   - component: {fileID: 1012582230516775836}
   - component: {fileID: 1012582230516775835}
   - component: {fileID: 1012582230516775834}
+  - component: {fileID: 2694023172340238607}
   m_Layer: 0
   m_Name: LeaveRoom_Button
   m_TagString: Untagged
@@ -4622,7 +4646,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012582230516775835}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2694023172340238607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012582230516775832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 420, y: 70, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1012582230574916783
 GameObject:
   m_ObjectHideFlags: 0
@@ -4635,6 +4684,7 @@ GameObject:
   - component: {fileID: 1012582230574916771}
   - component: {fileID: 1012582230574916770}
   - component: {fileID: 1012582230574916769}
+  - component: {fileID: 1236789891842512841}
   m_Layer: 0
   m_Name: SwitchMode_Button
   m_TagString: Untagged
@@ -4744,7 +4794,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012582230574916770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: SwitchMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &1236789891842512841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012582230574916783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 420, y: 70, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4617171824782710616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,8 +4832,9 @@ GameObject:
   - component: {fileID: 4853627685139866829}
   - component: {fileID: 6054525239485792735}
   - component: {fileID: 1734426079656087959}
+  - component: {fileID: 2047502084409716729}
   m_Layer: 0
-  m_Name: Switch_Button
+  m_Name: Setup_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4866,7 +4942,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6054525239485792735}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7047192676279936835, guid: 51aed01c6a5f0cf48860df2b68cfd68f, type: 3}
+        m_TargetAssemblyTypeName: Li_RoomUIManager, Assembly-CSharp
+        m_MethodName: ChangeSetup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &2047502084409716729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617171824782710616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 420, y: 70, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5797437075667876599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4880,7 +4981,7 @@ GameObject:
   - component: {fileID: 4947909932239411534}
   - component: {fileID: 3196939995634506889}
   m_Layer: 0
-  m_Name: SwitchButtonCanvas
+  m_Name: SetupButtonCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

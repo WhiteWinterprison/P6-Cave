@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2398157175589609557}
   - component: {fileID: 8274825251796760243}
   - component: {fileID: 7280691353354031353}
+  - component: {fileID: 810346932}
   m_Layer: 0
   m_Name: InteractionManager
   m_TagString: Untagged
@@ -482,3 +483,15 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: -1506368258606938233, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+--- !u!114 &810346932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398157175589609562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

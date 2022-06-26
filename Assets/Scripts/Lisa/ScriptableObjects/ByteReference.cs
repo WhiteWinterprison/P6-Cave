@@ -1,6 +1,6 @@
 //Lisa Fröhlich Gabra, ER, P6, "HEL: The Human Ecosystem Laboratory"
 
-//Trying to figure out how ScriptableObjects work
+//Providing a reference to a created byte variable
 
 using System.Collections;
 using System.Collections.Generic;
@@ -12,9 +12,9 @@ public class ByteReference
 {
     public bool UseConstant = true;
     public byte ConstantValue;
-    public ByteVariable Variable;
+    public ByteObject Variable;
 
-    public int Value
+    public byte Value
     {
         get { return UseConstant ? ConstantValue : Variable.Value; }
     }

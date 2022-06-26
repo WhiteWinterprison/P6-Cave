@@ -16,7 +16,7 @@ public class MoveSelectionKeyboard : MonoBehaviour
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-       debugAction = new DebugAction();
+        debugAction = new DebugAction();
 
         debugAction.Debugging.Enable();
         debugAction.Debugging.Select.performed += Select_performed;
@@ -97,6 +97,4 @@ public class MoveSelectionKeyboard : MonoBehaviour
             obj.GetComponent<SelectableObject>().ActivationOccured();
         }
     }
-
-
 }

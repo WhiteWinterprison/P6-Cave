@@ -1435,7 +1435,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 5421932872632576437, guid: 5bad93a1e60c45b43932446359a5c44b, type: 3}
+    m_Reference: {fileID: 6808578912126376714, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
   m_RotationInput:
     m_UseReference: 1
     m_Action:
@@ -1447,7 +1447,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -6697344501719892442, guid: 5bad93a1e60c45b43932446359a5c44b, type: 3}
+    m_Reference: {fileID: 2861423147010689255, guid: 4167180068358d547b20e26a6200c1c8, type: 3}
   m_PositionAction:
     m_Name: 
     m_Type: 0
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 7143428109614240184}
   m_OriginBaseGameObject: {fileID: 7143428109358772446}
   m_CameraFloorOffsetObject: {fileID: 8667039597073329521}
   m_RequestedTrackingOriginMode: 2

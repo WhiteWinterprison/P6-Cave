@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f0bef3431c5684f9da86fdd885c5f0, type: 3}
+  m_Name: NetworkManager
+  m_EditorClassIdentifier: 
+  playerCount:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 45bb185cc9ca1fc42986c7f4b36faabb, type: 2}
+  roomIndex:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 1ef5cf0c234be0b4a97b1406ae9f26d0, type: 2}
+  lobbyIndex:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 424a8f5f7ed0ff24bb8ba91158e08d9f, type: 2}
+  roomNames:
+    UseConstant: 0
+    ConstantContent: []
+    Variable: {fileID: 11400000, guid: eb01d3ad8a44d2c4780f1282a03048f8, type: 2}

@@ -75,7 +75,7 @@ public class Li_PlayerSetup : MonoBehaviour
         }
         else //or there is nothing special
         {
-            playerSetup = 1; //and its the default/desktop setup
+            playerSetup = 3; //and its the default/desktop setup
         }
     }
 

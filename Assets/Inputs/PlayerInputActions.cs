@@ -50,7 +50,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""900a3fcb-8094-4ae9-8664-6bcba188d9af"",
-                    ""path"": ""<XRViveTracker>/devicePosition"",
+                    ""path"": ""<XRViveTracker>{Camera}/devicePosition"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -61,7 +61,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6360b007-9bb0-496e-a239-1cc10b8f026b"",
-                    ""path"": ""<XRViveTracker>/deviceRotation"",
+                    ""path"": ""<XRViveTracker>{Camera}/deviceRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1249,7 +1249,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""811e748a-7747-4260-ba2e-2e9c3f64abdb"",
-                    ""path"": ""<Keyboard>/numpad6"",
+                    ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1260,7 +1260,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e2fc9ac4-4e0c-44d8-9c20-54e45f5d4716"",
-                    ""path"": ""<Keyboard>/numpad4"",
+                    ""path"": ""<Keyboard>/9"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

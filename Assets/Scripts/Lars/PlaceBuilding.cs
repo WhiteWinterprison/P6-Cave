@@ -6,59 +6,66 @@ using UnityEngine;
 
 public class PlaceBuilding : MonoBehaviour
 {
-    //RaycastHit hit;
-    public GameObject prefab;
-    bool placedBuilding;
+    //public GameObject prefab;
+    //bool placedBuilding;
+    Renderer rend;
 
-
-    // script for mouse interaction
-
-    // Start is called before the first frame update
-    /*void Start()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
-        {
-            transform.position = hit.point;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if(Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
-        {
-            transform.position = hit.point;
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-                Instantiate(prefab, transform.position, Quaternion.identity);
-                Destroy(gameObject);
-        }
-    }*/
-
+    public Material[] Materials;
 
     //script for VR interaction
     void Start()
     {
-        placedBuilding = false;
+        //placedBuilding = false;
+        Renderer rend = GetComponent<Renderer>();
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if(rend != null)
         {
-            if(placedBuilding == false)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                Instantiate(prefab, transform.position, Quaternion.identity);
-                Debug.Log("spawn");
-                Destroy(gameObject);
-                placedBuilding = true;
+                    rend.material = Materials[1];
+            }
+            else
+            {
+                rend.material = Materials[0];
             }
         }
     }
 }
+
+//archive code
+
+// script for mouse interaction
+
+//RaycastHit hit;
+
+// Start is called before the first frame update
+/*void Start()
+{
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+    if (Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
+    {
+        transform.position = hit.point;
+    }
+}
+
+// Update is called once per frame
+void Update()
+{
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+    if(Physics.Raycast(ray, out hit, 50000.0f, (1 << 3)))
+    {
+        transform.position = hit.point;
+    }
+
+    if(Input.GetMouseButton(0))
+    {
+            Instantiate(prefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+    }
+}
+*/
